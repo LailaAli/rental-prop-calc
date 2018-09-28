@@ -3,10 +3,25 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import { AppComponent } from './app.component';
+import { PurchaseDetailsComponent } from './purchase-details/purchase-details.component';
+import { IncomeDetailsComponent } from './income-details/income-details.component';
+import { ExpensesDetailsComponent } from './expenses-details/expenses-details.component';
+import { SellDetailsComponent } from './sell-details/sell-details.component';
+import { ResultSummaryComponent } from './result-summary/result-summary.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, MDBBootstrapModule.forRoot()],
+  declarations: [
+    AppComponent,
+    PurchaseDetailsComponent,
+    IncomeDetailsComponent,
+    ExpensesDetailsComponent,
+    SellDetailsComponent,
+    ResultSummaryComponent,
+    NavbarComponent],
+  imports: [
+    BrowserModule,
+    MDBBootstrapModule.forRoot()],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
