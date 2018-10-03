@@ -40,7 +40,20 @@ gulp.task('clean-styles', function() {
   del(dist.path + dist.css);
 });
 
+
 // Custom Tasks
+
+gulp.task('default', function() {
+  return gulp.src('src/**/*.js') /** 1 **/
+    .pipe(jshint()) /** 2 **/
+    .pipe(jshint.reporter('default'))
+    .pipe(jshint.reporter('fail'))
+    .pipe(gulp.src('vendor/**/*.js', {passthrough: true})) /** 3 **/
+    .pipe(uglify())
+    .pipe(concat('main.min.js'))
+    .pipe(gulp.dest('dest'));
+});
+
 gulp.task('vet', function() {
   return gulp
     .src([config.js])
@@ -69,7 +82,7 @@ gulp.task('templatecache', function() {
 
 gulp.task(
   'useref',
-  gulp.series(['vet', 'clean-js', 'clean-styles'], function() {
+  gulp.series(['default', 'clean-js', 'clean-styles'], function() {
     const assets = useref.assets();
 
     return gulp
