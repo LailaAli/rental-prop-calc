@@ -22,7 +22,7 @@
             <div class='label'>Finance</div>
           </div>
           <div class="col-6">
-            <button id='financeToggle'>toggle</button>
+            <app-toggle-switch></app-toggle-switch>
           </div>
         </div>
 
@@ -39,34 +39,51 @@
 
           <div class="row">
             <div class="col-6 col-md-6">Interest Rate</div>
-            <div class="col-6 col-md-6"><input type='number' placeholder="4.0%" value=''> </div>
+            <div class="col-6 d-flex flex-row">
+              <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+              <span class='d-inline-flex pr-2'>%</span>
+            </div>
           </div>
 
           <div class="row">
             <div class="col-6 col-md-6">Loan Term</div>
-            <div class="col-6 col-md-6"><input type='number' placeholder="30yr" value=''> </div>
+            <div class="col-6 d-flex flex-row">
+              <input type="number" class="d-inline-flex" id="loanTerm">
+              <span class='d-inline-flex pr-2'>Yrs.</span>
+            </div>
           </div>
         </div>
 
         <div class="row">
           <div class="col-6 col-md-6">Closing Cost</div>
-          <div class="col-6 col-md-6"><input type='number' format='currency' placeholder="$3000" value=''></div>
+          <div class="col-6 d-flex flex-row">
+            <span class='d-inline-flex pr-2'>$</span>
+            <input type="number" class="d-inline-flex" id="closingCost">
+          </div>
         </div>
 
         <div class="row">
           <div class="col-6 col-md-6">Need Repair</div>
-          <div class="col-6 col-md-6"><button>toggle</button> </div>
+          <div class="col-6 col-md-6">
+            <app-toggle-switch></app-toggle-switch>
+          </div>
         </div>
 
         <div class="container toggle-section">
           <div class="row">
             <div class="col-6 col-md-6">Repair Cost</div>
-            <div class="col-6 col-md-6"><input type='number' format='currency' placeholder="$15000" value=''></div>
+            <div class="col-6 d-flex flex-row">
+              <span class='d-inline-flex pr-2'>$</span>
+              <input type="number" class="d-inline-flex" id="repairCost">
+            </div>
           </div>
 
           <div class="row">
             <div class="col-6">After Repair Value</div>
-            <div class="col-6"><input type='number' format='currency' placeholder="$180000" value=''></div>
+            <div class="col-6 d-flex flex-row align-self-start">
+              <span class='d-inline-flex pr-2'>$</span>
+              <input type="number" class="d-inline-flex" id="afterRepairValue">
+            </div>
           </div>
         </div>
 

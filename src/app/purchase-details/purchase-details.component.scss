@@ -1,18 +1,24 @@
-.row {
-  padding-bottom: 20px;
-}
-
 input {
   margin-right: 10px;
+  width: 100%;
 }
 
 .container {
   padding-left: 0px;
 
-  .toggle-section {
-    // border: 1px solid lightgray;
-    padding-top: 20px;
+  .row {
+    padding-bottom: 20px;
+  }
 
+  input {
+    margin-right: 10px;
+    width: 100%;
+  }
+
+  .toggle-section {
+    border: 1px solid lightgray;
+    padding-top: 20px;
+    padding-left: 10px;
     margin-bottom: 20px;
   }
 }

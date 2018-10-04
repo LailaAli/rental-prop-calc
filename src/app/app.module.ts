@@ -13,6 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MdbExamplesComponent } from './mdb-examples/mdb-examples.component';
 import { AccordionComponent } from './common/accordion/accordion.component';
 import { PanelComponent } from './common/panel/panel.component';
+import { ToggleSwitchComponent } from './common/toggle-switch/toggle-switch.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { PanelComponent } from './common/panel/panel.component';
     MdbExamplesComponent,
     AccordionComponent,
     PanelComponent,
+    ToggleSwitchComponent,
   ],
   imports: [
     BrowserModule,
