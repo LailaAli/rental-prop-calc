@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
@@ -9,6 +10,9 @@ import { ExpensesDetailsComponent } from './expenses-details/expenses-details.co
 import { SellDetailsComponent } from './sell-details/sell-details.component';
 import { ResultSummaryComponent } from './result-summary/result-summary.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MdbExamplesComponent } from './mdb-examples/mdb-examples.component';
+import { AccordionComponent } from './common/accordion/accordion.component';
+import { PanelComponent } from './common/panel/panel.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +22,14 @@ import { NavbarComponent } from './navbar/navbar.component';
     ExpensesDetailsComponent,
     SellDetailsComponent,
     ResultSummaryComponent,
-    NavbarComponent],
+    NavbarComponent,
+    MdbExamplesComponent,
+    AccordionComponent,
+    PanelComponent,
+  ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     MDBBootstrapModule.forRoot()],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],

@@ -1,0 +1,80 @@
+<main class="pb-5">
+  <div class="container">
+    <app-accordion [justViewed]='justViewed' [isHidden]='false'>
+      <div class='title text-uppercase'>
+        <mdb-icon icon='money' size='2x' class="pb-2" aria-hidden="true"></mdb-icon>
+        <h4 class='align-middle'> Purchase </h4>
+      </div>
+      <div class='container panel-body md-form'>
+
+        <div class="row">
+          <div class="col-6">
+            <div class='label'>Purchase Price</div>
+          </div>
+          <div class="col-6 d-flex flex-row">
+            <span class='d-inline-flex pr-2'>$</span>
+            <input type="number" class="d-inline-flex" id="purchasePrice">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class='label'>Finance</div>
+          </div>
+          <div class="col-6">
+            <button id='financeToggle'>toggle</button>
+          </div>
+        </div>
+
+        <div class="container toggle-section">
+          <div class="row">
+            <div class="col-6">
+              <div class='label'>Down Payment</div>
+            </div>
+            <div class="col-6 d-flex flex-row">
+              <span class='d-inline-flex pr-2'>$</span>
+              <input type="number" class="d-inline-flex" id="downPayment">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6 col-md-6">Interest Rate</div>
+            <div class="col-6 col-md-6"><input type='number' placeholder="4.0%" value=''> </div>
+          </div>
+
+          <div class="row">
+            <div class="col-6 col-md-6">Loan Term</div>
+            <div class="col-6 col-md-6"><input type='number' placeholder="30yr" value=''> </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6 col-md-6">Closing Cost</div>
+          <div class="col-6 col-md-6"><input type='number' format='currency' placeholder="$3000" value=''></div>
+        </div>
+
+        <div class="row">
+          <div class="col-6 col-md-6">Need Repair</div>
+          <div class="col-6 col-md-6"><button>toggle</button> </div>
+        </div>
+
+        <div class="container toggle-section">
+          <div class="row">
+            <div class="col-6 col-md-6">Repair Cost</div>
+            <div class="col-6 col-md-6"><input type='number' format='currency' placeholder="$15000" value=''></div>
+          </div>
+
+          <div class="row">
+            <div class="col-6">After Repair Value</div>
+            <div class="col-6"><input type='number' format='currency' placeholder="$180000" value=''></div>
+          </div>
+        </div>
+
+      </div>
+
+      <button mdbBtn type="button" color="orange" outline="true" mdbWavesEffect class='panel-footer'>Next</button>
+
+    </app-accordion>
+  </div>
+
+</main>

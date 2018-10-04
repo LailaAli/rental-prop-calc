@@ -5,11 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './purchase-details.component.html',
   styleUrls: ['./purchase-details.component.scss']
 })
-export class PurchaseDetailsComponent implements OnInit {
+export class PurchaseDetailsComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  title = 'this is title';
+  justViewed: boolean;
+  isHidden = false;
 }
