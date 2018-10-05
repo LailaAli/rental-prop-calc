@@ -1,8 +1,14 @@
-<div class="panel panel-info">
-    <div class="panel-heading" (click)="toggle.emit()">
-      {{title}}
-    </div>
-    <div class="panel-body" *ngIf="opened">
-      <ng-content></ng-content>
-    </div>
-  <div>
+<mdb-card [class.panel-success]='justViewed'>
+  <mdb-card-header class="deep-orange lighten-1 white-text text-center" style="cursor: pointer"
+    (click)='isHidden = !isHidden'>
+    <ng-content select='.title' ngProjectAs=".title"></ng-content>
+  </mdb-card-header>
+  <mdb-card-body class='panel-body' [hidden]='isHidden'>
+    <mdb-card-text>
+      <ng-content select='.panel-body' ngProjectAs=".panel-body"></ng-content>
+    </mdb-card-text>
+  </mdb-card-body>
+  <mdb-card-footer class="text-muted  white-text panel-footer text-right" [hidden]='isHidden'>
+    <ng-content select='.panel-footer' ngProjectAs="panel-footer"></ng-content>
+  </mdb-card-footer>
+</mdb-card>

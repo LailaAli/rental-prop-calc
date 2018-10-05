@@ -9,8 +9,6 @@ export class AccordionComponent implements OnInit {
   @Input()
   justViewed: boolean;
   @Input()
-  title: string;
-  @Input()
   isHidden = false;
   constructor() {}
 
