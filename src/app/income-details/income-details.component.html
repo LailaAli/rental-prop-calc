@@ -7,59 +7,68 @@
 
     <div class='container panel-body md-form'>
 
-      <div class="row">
-        <div class="col-6">
-          <div class='label'>Monthly Rent</div>
+      <div class="row sect-1">
+
+        <div class="col-sm-12 col-lg-6 mb-5">
+          <div class='label pb-1'>Monthly Rent</div>
+          <div class="d-flex flex-row">
+            <span class='d-inline-flex pr-2'>$</span>
+            <input type="number" class="d-inline-flex" id="purchasePrice">
+          </div>
         </div>
-        <div class="col-6 d-flex flex-row">
-          <span class='d-inline-flex pr-2'>$</span>
-          <input type="number" class="d-inline-flex" id="purchasePrice">
+
+        <div class='col-sm-12 col-lg-6'>
+          <h6 class="label">Annual Increase</h6>
+          <div class="d-flex flex-row">
+            <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+            <span class='d-inline-flex pr-2'>%</span>
+          </div>
         </div>
+
       </div>
 
-      <div class="row indent-right">
-        <div class="col-6 col-md-6">Annual Increase</div>
-        <div class="col-6 d-flex flex-row">
-          <input type="number" step=".01" class="d-inline-flex" id="interestRate">
-          <span class='d-inline-flex pr-2'>%</span>
+      <div class="row sect-2">
+
+        <div class="col-sm-12 col-lg-6 mb-5">
+          <div class='label pb-1'>Other Monthly Income</div>
+          <div class="d-flex flex-row">
+            <span class='d-inline-flex pr-2'>$</span>
+            <input type="number" class="d-inline-flex" id="purchasePrice">
+          </div>
         </div>
+
+        <div class='col-sm-12 col-lg-6'>
+          <h6 class="label">Annual Increase</h6>
+          <div class="d-flex flex-row">
+            <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+            <span class='d-inline-flex pr-2'>%</span>
+          </div>
+        </div>
+
       </div>
 
-      <div class="row">
-        <div class="col-6">
-          <div class='label'>Other Monthly Income</div>
-        </div>
-        <div class="col-6 d-flex flex-row align-self-start">
-          <span class='d-inline-flex pr-2'>$</span>
-          <input type="number" class="d-inline-flex" id="purchasePrice">
-        </div>
-      </div>
+      <div class="row sect-3">
 
-      <div class="row indent-right">
-        <div class="col-6 col-md-6">Annual Increase</div>
-        <div class="col-6 d-flex flex-row">
-          <input type="number" step=".01" class="d-inline-flex" id="interestRate">
-          <span class='d-inline-flex pr-2'>%</span>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-6">
+        <div class="col-sm-12 col-lg-6 mb-5">
           <div class='label'>Vacancy Rate</div>
+          <div class="d-flex flex-row">
+            <input type="number" class="d-inline-flex" id="purchasePrice">
+            <span class='d-inline-flex pr-2'>%</span>
+          </div>
         </div>
-        <div class="col-6 d-flex flex-row">
-          <input type="number" class="d-inline-flex" id="purchasePrice">
-          <span class='d-inline-flex pr-2'>%</span>
+
+        <div class='col-sm-12 col-lg-6'>
+          <h6 class="label">Mgmt. Fee</h6>
+          <div class="d-flex flex-row">
+            <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+            <span class='d-inline-flex pr-2'>%</span>
+          </div>
         </div>
+
       </div>
 
-      <div class="row indent-right">
-        <div class="col-6 col-md-6">Annual Increase</div>
-        <div class="col-6 d-flex flex-row">
-          <input type="number" step=".01" class="d-inline-flex" id="interestRate">
-          <span class='d-inline-flex pr-2'>%</span>
-        </div>
-      </div>
     </div>
+
+    <button mdbBtn type="button" color="orange" outline="true" mdbWavesEffect class='panel-footer'>Next</button>
   </app-panel>
 </div>
