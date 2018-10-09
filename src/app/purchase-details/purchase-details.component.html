@@ -1,97 +1,96 @@
-<main class="pb-5">
-  <div class="container">
-    <app-panel [justViewed]='justViewed' [isHidden]='false'>
-      <div class='title text-uppercase'>
-        <mdb-icon icon='money' size='2x' class="pb-2" aria-hidden="true"></mdb-icon>
-        <h4 class='align-middle'> Purchase </h4>
-      </div>
-      <div class='container panel-body md-form'>
+<div class="container">
+  <app-panel [justViewed]='justViewed' [isHidden]='false'>
+    <div class='title text-uppercase'>
+      <mdb-icon icon='money' size='2x' class="pb-2" aria-hidden="true"></mdb-icon>
+      <h4 class='align-middle'> Purchase </h4>
+    </div>
+    <div class='container panel-body md-form'>
 
-        <div class="row">
-          <div class="col-6">
-            <div class='label'>Purchase Price</div>
-          </div>
-          <div class="col-6 d-flex flex-row">
-            <span class='d-inline-flex pr-2'>$</span>
+      <div class="row">
+
+          <div class='label col-6 col-md-6'>Purchase Price</div>
+          <div class="d-flex flex-row">
+            <span class='d-inline-flex'>$</span>
             <input type="number" class="d-inline-flex" id="purchasePrice">
           </div>
-        </div>
-
-        <div class="row">
-          <div class="col-6">
-            <div class='label'>Finance</div>
-          </div>
-          <div class="col-6">
-            <app-toggle-switch></app-toggle-switch>
-          </div>
-        </div>
-
-        <div class="container toggle-section">
-          <div class="row">
-            <div class="col-6">
-              <div class='label'>Down Payment</div>
-            </div>
-            <div class="col-6 d-flex flex-row">
-              <span class='d-inline-flex pr-2'>$</span>
-              <input type="number" class="d-inline-flex" id="downPayment">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-6 col-md-6">Interest Rate</div>
-            <div class="col-6 d-flex flex-row">
-              <input type="number" step=".01" class="d-inline-flex" id="interestRate">
-              <span class='d-inline-flex pr-2'>%</span>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-6 col-md-6">Loan Term</div>
-            <div class="col-6 d-flex flex-row">
-              <input type="number" class="d-inline-flex" id="loanTerm">
-              <span class='d-inline-flex pr-2'>Yrs.</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-6 col-md-6">Closing Cost</div>
-          <div class="col-6 d-flex flex-row">
-            <span class='d-inline-flex pr-2'>$</span>
-            <input type="number" class="d-inline-flex" id="closingCost">
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-6 col-md-6">Need Repair</div>
-          <div class="col-6 col-md-6">
-            <app-toggle-switch></app-toggle-switch>
-          </div>
-        </div>
-
-        <div class="container toggle-section">
-          <div class="row">
-            <div class="col-6 col-md-6">Repair Cost</div>
-            <div class="col-6 d-flex flex-row">
-              <span class='d-inline-flex pr-2'>$</span>
-              <input type="number" class="d-inline-flex" id="repairCost">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-6">After Repair Value</div>
-            <div class="col-6 d-flex flex-row align-self-start">
-              <span class='d-inline-flex pr-2'>$</span>
-              <input type="number" class="d-inline-flex" id="afterRepairValue">
-            </div>
-          </div>
-        </div>
 
       </div>
 
-      <button mdbBtn type="button" color="orange" outline="true" mdbWavesEffect class='panel-footer'>Next</button>
+      <div class="row">
+        <div class="col-6">
+          <div class='label'>Finance</div>
+        </div>
+        <div class="col-6">
+          <app-toggle-switch></app-toggle-switch>
+        </div>
+      </div>
 
-    </app-panel>
-  </div>
+      <div class="row toggle-section">
+        <div class="col-lg-4 col-sm-4">
+          <div class='label'>Down Payment</div>
+          <div class="d-flex flex-row">
+            <span class='d-inline-flex'>$</span>
+            <input type="number" class="d-inline-flex" id="downPayment">
+          </div>
+        </div>
 
-</main>
+        <div class="col-lg-4 col-sm-4">
+          <div class="label">Interest Rate</div>
+          <div class="d-flex flex-row">
+            <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+            <span class='d-inline-flex'>%</span>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-4">
+          <div class="label">Loan Term</div>
+          <div class="d-flex flex-row">
+            <input type="number" class="d-inline-flex" id="loanTerm">
+            <span class='d-inline-flex'>Yrs.</span>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-6 col-md-6 label">Closing Cost</div>
+        <div class="d-flex flex-row">
+          <span class='d-inline-flex'>$</span>
+          <input type="number" class="d-inline-flex" id="closingCost">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <div class='label'>Need Repair</div>
+        </div>
+        <div class="col-6">
+          <app-toggle-switch></app-toggle-switch>
+        </div>
+      </div>
+
+      <div class="row toggle-section">
+        <div class="col-lg-6 col-sm-12">
+          <div class="label">Repair Cost</div>
+          <div class="d-flex flex-row">
+            <span class='d-inline-flex'>$</span>
+            <input type="number" class="d-inline-flex" id="repairCost">
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-sm-12">
+          <div class="label">After Repair Value</div>
+          <div class="d-flex flex-row">
+            <span class='d-inline-flex'>$</span>
+            <input type="number" class="d-inline-flex" id="afterRepairValue">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <button mdbBtn type="button" color="orange" outline="true" mdbWavesEffect class='panel-footer'>Next</button>
+
+  </app-panel>
+</div>

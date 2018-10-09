@@ -1,0 +1,71 @@
+@mixin headings($from: 1, $to: 6){
+  @for $i from $from through $to{
+    h#{$i}{
+      @content
+    }
+  }
+}
+
+@mixin headings-all(){
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    @content
+}
+@include headings-sizes-ms();
+}
+
+@mixin headings-sizes-ms() {
+h1, .h1 {font-size: ms(4)}
+h2, .h2 {font-size: ms(3)}
+h3, .h3 {font-size: ms(2)}
+h4, .h4 {font-size: ms(1)}
+h5, .h5 {font-size: ms(0)}
+h6, .h6 {font-size: ms(-1)}
+}
+
+.container {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding-left: 0px;
+  padding-right: 0px;
+
+  .row:not(:first-child) {
+    margin-top: 30px;
+  }
+
+  .row {
+    padding-top: 30px;
+
+    .label {
+      text-transform: uppercase;
+      font-weight: 500;
+      padding-bottom: 10px;
+    }
+
+    input {
+      margin-right: 10px;
+      margin-bottom: 30px;
+      // width: 100%;
+    }
+  }
+
+  .toggle-section {
+    color: purple;
+    border: 1px solid purple;
+  }
+
+  .sect-1 {
+    color: inherit;
+    border: 1px solid lightgrey;
+  }
+
+  .sect-2 {
+    color: purple;
+    border: 1px solid purple;
+  }
+
+  .sect-3 {
+    color: rgb(93, 225, 225);
+    border: 1px solid rgb(93, 225, 225);
+  }
+}
