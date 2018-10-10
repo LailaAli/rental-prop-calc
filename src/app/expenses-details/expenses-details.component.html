@@ -1,14 +1,107 @@
 <div class="container">
-  <app-panel>
+  <app-panel id='expensesDetails' [isHidden]='true'>
     <div class='title text-uppercase'>
       <mdb-icon icon='money' size='2x' class="pb-2" aria-hidden="true"></mdb-icon>
-      <h4 class='align-middle'> Reoccuring Expenses </h4>
+      <h3 class='align-middle'> Reoccuring Expenses </h3>
     </div>
 
     <div class='container panel-body md-form'>
 
+      <div class="row sect-1">
+
+        <div class="col-sm-4 col-lg-4">
+          <h4 class='label pb-1'>Property Tax</h4>
+          <div class="d-flex flex-row">
+            <span class='d-inline-flex pr-2'>$</span>
+            <input type="number" class="d-inline-flex" id="purchasePrice">
+          </div>
+        </div>
+
+        <div class='col-sm-4 col-lg-4'>
+          <h5 class="label">Annual Increase</h5>
+          <div class="d-flex flex-row">
+            <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+            <span class='d-inline-flex pr-2'>%</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row sect-2">
+        <div class="col-sm-4 col-lg-4">
+          <h4 class='label pb-1'>Total Insurance</h4>
+          <div class="d-flex flex-row">
+            <span class='d-inline-flex pr-2'>$</span>
+            <input type="number" class="d-inline-flex" id="purchasePrice">
+          </div>
+        </div>
+
+        <div class='col-sm-4 col-lg-4'>
+          <h5 class="label">Annual Increase</h5>
+          <div class="d-flex flex-row">
+            <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+            <span class='d-inline-flex pr-2'>%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row sect-3">
+        <div class="col-sm-4 col-lg-4">
+          <h4 class='label'>HOA Fee</h4>
+          <div class="d-flex flex-row">
+            <input type="number" class="d-inline-flex" id="purchasePrice">
+            <span class='d-inline-flex pr-2'>%</span>
+          </div>
+        </div>
+
+        <div class='col-sm-4 col-lg-4'>
+          <h5 class="label">Mgmt. Fee</h5>
+          <div class="d-flex flex-row">
+            <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+            <span class='d-inline-flex pr-2'>%</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row sect-1">
+          <div class="col-sm-4 col-lg-4">
+            <h4 class='label'>Maintenance Fee</h4>
+            <div class="d-flex flex-row">
+              <input type="number" class="d-inline-flex" id="purchasePrice">
+              <span class='d-inline-flex pr-2'>%</span>
+            </div>
+          </div>
+
+          <div class='col-sm-4 col-lg-4'>
+            <h5 class="label">Annual Increase</h5>
+            <div class="d-flex flex-row">
+              <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+              <span class='d-inline-flex pr-2'>%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row sect-2">
+            <div class="col-sm-4 col-lg-4">
+              <h4 class='label'>Other Cost</h4>
+              <div class="d-flex flex-row">
+                <input type="number" class="d-inline-flex" id="purchasePrice">
+                <span class='d-inline-flex pr-2'>%</span>
+              </div>
+            </div>
+
+            <div class='col-sm-4 col-lg-4'>
+              <h5 class="label">Annual Increase</h5>
+              <div class="d-flex flex-row">
+                <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+                <span class='d-inline-flex pr-2'>%</span>
+              </div>
+            </div>
+          </div>
 
     </div>
+
+    <button mdbBtn type="button" color="orange" outline="true" mdbWavesEffect class='panel-footer'>Next</button>
 
   </app-panel>
 </div>

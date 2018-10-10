@@ -18,6 +18,8 @@ import { ToggleSwitchComponent } from './common/toggle-switch/toggle-switch.comp
 @NgModule({
   declarations: [
     AppComponent,
+    AccordionComponent,
+    PanelComponent,
     PurchaseDetailsComponent,
     IncomeDetailsComponent,
     ExpensesDetailsComponent,
@@ -25,8 +27,6 @@ import { ToggleSwitchComponent } from './common/toggle-switch/toggle-switch.comp
     ResultSummaryComponent,
     NavbarComponent,
     MdbExamplesComponent,
-    AccordionComponent,
-    PanelComponent,
     ToggleSwitchComponent,
   ],
   imports: [

@@ -1,3 +1,59 @@
-<p>
-  sell-details works!
-</p>
+<div class="container">
+  <app-panel id='sellDetails' [isHidden]='isHidden'>
+    <div class='title text-uppercase'>
+      <mdb-icon icon='money' size='2x' class="pb-2" aria-hidden="true"></mdb-icon>
+      <h3 class='align-middle'> Sell </h3>
+    </div>
+
+    <div class='container panel-body md-form'>
+
+      <div class="row">
+        <div class="col-6 col-lg-6 col-md-6 col-sm-11">
+          <h4 class='label'>Do you know the sell price?</h4>
+        </div>
+        <div class="col-4 col-lg-1 col-md-1 col-sm-1 padding-bottom">
+          <app-toggle-switch></app-toggle-switch>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4 col-lg-4">
+          <h4 class='label pb-2.5'>Sell Price</h4>
+          <div class="d-flex flex-row">
+            <span class='d-inline-flex pr-2'>$</span>
+            <input type="number" class="d-inline-flex" id="sellPrice">
+          </div>
+        </div>
+      </div>
+
+      <div class="row toggle-section">
+        <div class="col-lg-4 col-sm-4">
+          <h4 class='label'>Value Appreciation</h4>
+          <div class="d-flex flex-row padding-bottom">
+            <input type="number" class="d-inline-flex" id="valueAppreciation">
+            <span class='d-inline-flex col-6'>% Per Yr</span>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-4">
+          <h4 class="label">Holding Length</h4>
+          <div class="d-flex flex-row padding-bottom">
+            <input type="number" step=".01" class="d-inline-flex" id="holdingLength">
+            <span class='d-inline-flex'>Yrs</span>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-sm-4">
+          <h4 class="label">Cost to Sell</h4>
+          <div class="d-flex flex-row">
+            <input type="number" class="d-inline-flex" id="costToSell">
+            <span class='d-inline-flex'>%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <button mdbBtn type="button" color="orange" outline="true" mdbWavesEffect class='panel-footer'>Next</button>
+  </app-panel>
+</div>

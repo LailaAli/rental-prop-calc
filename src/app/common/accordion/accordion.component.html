@@ -1,2 +1,15 @@
+<div id='accordion'>
+  <div class='accordion-group' id='purchase'>
+    <app-purchase-details (valueChange)='displayCounter($event)' [isHidden]='true'></app-purchase-details>
+  </div>
+  <div class='accordion-group' id='income'>
+    <app-income-details></app-income-details>
+  </div>
+  <div class='accordion-group' id='expenses'>
+    <app-expenses-details></app-expenses-details>
+  </div>
+  <div class='accordion-group' id='sell'>
+    <app-sell-details [isHidden]='true'></app-sell-details>
+  </div>
 
-
+</div>

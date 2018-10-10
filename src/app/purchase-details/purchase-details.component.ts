@@ -1,13 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, } from '@angular/core';
 
 @Component({
   selector: 'app-purchase-details',
   templateUrl: './purchase-details.component.html',
   styleUrls: ['./purchase-details.component.scss']
 })
-export class PurchaseDetailsComponent {
+export class PurchaseDetailsComponent implements OnInit {
 
-  title = 'this is title';
-  justViewed: boolean;
-  isHidden = false;
+  @Input() isHidden = false;
+
+
+
+  @Output() valueChange = new EventEmitter();
+  counter = 0;
+
+  valueChanged() { // You can give any function name
+      this.counter = this.counter + 1;
+      this.valueChange.emit(this.counter);
+  }
+
+  ngOnInit() {}
+
+
 }

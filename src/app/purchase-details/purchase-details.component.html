@@ -1,33 +1,33 @@
 <div class="container">
-  <app-panel [justViewed]='justViewed' [isHidden]='false'>
+  <app-panel id='purchaseDetails' [isHidden]='isHidden' (click)="valueChanged()">
     <div class='title text-uppercase'>
       <mdb-icon icon='money' size='2x' class="pb-2" aria-hidden="true"></mdb-icon>
-      <h4 class='align-middle'> Purchase </h4>
+      <h3 class='align-middle'> Purchase </h3>
     </div>
-    <div class='container panel-body md-form'>
+    <div class='panel-body md-form'>
 
       <div class="row">
-
-          <div class='label col-6 col-md-6'>Purchase Price</div>
+        <div class="col-sm-4 col-lg-4">
+          <h4 class='label pb-2.5'>Purchase Price</h4>
           <div class="d-flex flex-row">
-            <span class='d-inline-flex'>$</span>
+            <span class='d-inline-flex pr-2'>$</span>
             <input type="number" class="d-inline-flex" id="purchasePrice">
           </div>
-
+        </div>
       </div>
 
-      <div class="row">
-        <div class="col-6">
-          <div class='label'>Finance</div>
+      <div class="row" style="padding-left: 0px">
+        <div class="col-5 col-lg-4 col-md-4 col-sm-4">
+          <h4 class='label'>Finance</h4>
         </div>
-        <div class="col-6">
+        <div class="col-4 col-lg-1 col-md-1 col-sm-6 padding-bottom">
           <app-toggle-switch></app-toggle-switch>
         </div>
       </div>
 
       <div class="row toggle-section">
         <div class="col-lg-4 col-sm-4">
-          <div class='label'>Down Payment</div>
+          <h4 class='label'>Down Payment</h4>
           <div class="d-flex flex-row">
             <span class='d-inline-flex'>$</span>
             <input type="number" class="d-inline-flex" id="downPayment">
@@ -35,7 +35,7 @@
         </div>
 
         <div class="col-lg-4 col-sm-4">
-          <div class="label">Interest Rate</div>
+          <h4 class="label">Interest Rate</h4>
           <div class="d-flex flex-row">
             <input type="number" step=".01" class="d-inline-flex" id="interestRate">
             <span class='d-inline-flex'>%</span>
@@ -43,7 +43,7 @@
         </div>
 
         <div class="col-lg-4 col-sm-4">
-          <div class="label">Loan Term</div>
+          <h4 class="label">Loan Term</h4>
           <div class="d-flex flex-row">
             <input type="number" class="d-inline-flex" id="loanTerm">
             <span class='d-inline-flex'>Yrs.</span>
@@ -51,36 +51,36 @@
         </div>
       </div>
 
-
-
       <div class="row">
-        <div class="col-6 col-md-6 label">Closing Cost</div>
-        <div class="d-flex flex-row">
-          <span class='d-inline-flex'>$</span>
-          <input type="number" class="d-inline-flex" id="closingCost">
+        <div class="col-sm-4 col-lg-4">
+          <h4 class='label pb-2.5'>Closing Cost</h4>
+          <div class="d-flex flex-row">
+            <span class='d-inline-flex pr-2'>$</span>
+            <input type="number" class="d-inline-flex" id="closingCost">
+          </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-6">
-          <div class='label'>Need Repair</div>
+      <div class="row" style="padding-left: 0px">
+        <div class="col-7 col-lg-4 col-md-4 col-sm-7">
+          <h4 class='label'>Need Repair</h4>
         </div>
-        <div class="col-6">
+        <div class="col-4 col-lg-1 col-md-1 col-sm-6 padding-bottom">
           <app-toggle-switch></app-toggle-switch>
         </div>
       </div>
 
       <div class="row toggle-section">
-        <div class="col-lg-6 col-sm-12">
-          <div class="label">Repair Cost</div>
+        <div class="col-lg-4 col-md-4">
+          <h4 class="label">Repair Cost</h4>
           <div class="d-flex flex-row">
             <span class='d-inline-flex'>$</span>
             <input type="number" class="d-inline-flex" id="repairCost">
           </div>
         </div>
 
-        <div class="col-lg-6 col-sm-12">
-          <div class="label">After Repair Value</div>
+        <div class="col-lg-4 col-md-4">
+          <h4 class="label">After Repair Value</h4>
           <div class="d-flex flex-row">
             <span class='d-inline-flex'>$</span>
             <input type="number" class="d-inline-flex" id="afterRepairValue">

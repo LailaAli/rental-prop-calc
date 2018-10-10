@@ -1,1 +1,95 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Raleway:300,400,500,600,700');
+
+
+// COLOR VARIABLES
+$teal: #1de9b6;
+$orange: #ff7b4c;
+
+
+// HEADING
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 h2 h3 h4 h5 h6 {
+  font-family: 'Raleway', sans-serif;
+}
+h1 {
+  font-size: 1.6em;
+}
+
+h2 {
+  font-size: 1.4em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+h4 {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+h5 {
+  font-size: .83em;
+}
+
+h6 {
+  font-size: .6em;
+}
+
+// GENERAL STYLE
+
+.container {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  max-width: 768px;
+
+  .row:not(:first-child) {
+    margin-top: 30px;
+  }
+
+  .row {
+    // padding-top: 30px;
+
+    .label {
+      text-transform: uppercase;
+      padding-bottom: 10px;
+    }
+
+    .long-label {
+      font-size: 0.95em;
+    }
+
+    .padding-bottom {
+      padding-bottom: 45px;
+    }
+
+    input {
+      margin-right: 10px;
+      margin-bottom: 30px;
+      width: 100%;
+    }
+  }
+
+  .sect-1 {
+    color: inherit;
+    border: 1.5px dotted lightgrey;
+    padding-top: 25px;
+  }
+
+  .sect-2 {
+    color: purple;
+    border: 1.5px dotted purple;
+    padding-top: 25px;
+  }
+
+  .sect-3 {
+    color: $teal;
+    border: 1.5px dotted $teal;
+    padding-top: 25px;
+  }
+}

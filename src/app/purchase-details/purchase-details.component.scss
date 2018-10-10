@@ -1,1 +1,7 @@
-@import '../../assets/css/style.scss';
+@import '../../styles.scss';
+
+.toggle-section {
+  // color: $orange;
+  border: 1.5px dotted $orange;
+  padding-top: 25px;
+}
