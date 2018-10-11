@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { TabModule } from 'angular-tabs-component';
 
 import { AppComponent } from './app.component';
 import { PurchaseDetailsComponent } from './purchase-details/purchase-details.component';
@@ -30,6 +31,7 @@ import { ToggleSwitchComponent } from './common/toggle-switch/toggle-switch.comp
     ToggleSwitchComponent,
   ],
   imports: [
+    TabModule,
     BrowserModule,
     BrowserAnimationsModule,
     MDBBootstrapModule.forRoot()],
