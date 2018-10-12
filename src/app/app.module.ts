@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { TabModule } from 'angular-tabs-component';
 
@@ -34,6 +36,7 @@ import { ToggleSwitchComponent } from './common/toggle-switch/toggle-switch.comp
     TabModule,
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     MDBBootstrapModule.forRoot()],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],

@@ -11,7 +11,7 @@
           <h4 class='label pb-2.5'>Purchase Price</h4>
           <div class="d-flex flex-row">
             <span class='d-inline-flex pr-2'>$</span>
-            <input type="number" class="d-inline-flex" id="purchasePrice">
+            <input type="number" class="d-inline-flex" id="purchasePrice" [(ngModel)]="purchase.purchasePrice">
           </div>
         </div>
       </div>
@@ -30,14 +30,14 @@
           <h4 class='label'>Down Payment</h4>
           <div class="d-flex flex-row">
             <span class='d-inline-flex'>$</span>
-            <input type="number" class="d-inline-flex" id="downPayment">
+            <input [(ngModel)]="purchase.downPayment" type="number" name='downPayment' class="d-inline-flex" id="downPayment">
           </div>
         </div>
 
         <div class="col-lg-4 col-sm-4">
           <h4 class="label">Interest Rate</h4>
           <div class="d-flex flex-row">
-            <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+            <input [(ngModel)]="purchase.interestRate" name='interestRate' type="number" step=".01" class="d-inline-flex text-right" id="interestRate" value={{purchase.interestRate}}>
             <span class='d-inline-flex'>%</span>
           </div>
         </div>
@@ -45,8 +45,8 @@
         <div class="col-lg-4 col-sm-4">
           <h4 class="label">Loan Term</h4>
           <div class="d-flex flex-row">
-            <input type="number" class="d-inline-flex" id="loanTerm">
-            <span class='d-inline-flex'>Yrs.</span>
+            <input [(ngModel)]="purchase.loanTerm" name='loanTerm' type="number" class="d-inline-flex text-right" id="loanTerm" value={{purchase.loanTerm}}>
+            <span class='d-inline-flex'> Yrs.</span>
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@
           <h4 class='label pb-2.5'>Closing Cost</h4>
           <div class="d-flex flex-row">
             <span class='d-inline-flex pr-2'>$</span>
-            <input type="number" class="d-inline-flex" id="closingCost">
+            <input [(ngModel)]="purchase.closingCost" name='closingCost' type="number" class="d-inline-flex" id="closingCost" value={{purchase.closingCost}}>
           </div>
         </div>
       </div>
@@ -75,7 +75,7 @@
           <h4 class="label">Repair Cost</h4>
           <div class="d-flex flex-row">
             <span class='d-inline-flex'>$</span>
-            <input type="number" class="d-inline-flex" id="repairCost">
+            <input [(ngModel)]="purchase.repairCost" name='repairCost' type="number" class="d-inline-flex" id="repairCost" value={{purchase.repairCost}}>
           </div>
         </div>
 
@@ -83,7 +83,7 @@
           <h4 class="label">After Repair Value</h4>
           <div class="d-flex flex-row">
             <span class='d-inline-flex'>$</span>
-            <input type="number" class="d-inline-flex" id="afterRepairValue">
+            <input [(ngModel)]="purchase.afterRepairValue" name='afterRepairValue' type="number" class="d-inline-flex" id="afterRepairValue">
           </div>
         </div>
       </div>

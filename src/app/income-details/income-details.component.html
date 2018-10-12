@@ -8,51 +8,49 @@
     <div class='container panel-body md-form'>
 
       <div class="row sect-1">
-
         <div class="col-sm-4 col-lg-4">
           <h4 class='label pb-1'>Monthly Rent</h4>
           <div class="d-flex flex-row">
             <span class='d-inline-flex pr-2'>$</span>
-            <input type="number" class="d-inline-flex" id="monthlyRent">
+            <input [(ngModel)]="income.monthlyRent" name='monthlyrent' type="number" class="d-inline-flex" id="monthlyRentInput">
           </div>
         </div>
 
         <div class='col-sm-4 col-lg-4'>
           <h5 class="label">Annual Increase</h5>
           <div class="d-flex flex-row">
-            <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+            <input [(ngModel)]="income.monthlyRentAI" name='monthlyRentAI' type="number" step=".01" class="d-inline-flex"
+              id="monthlyRentAIInput">
             <span class='d-inline-flex pr-2'>%</span>
           </div>
         </div>
-
       </div>
 
       <div class="row sect-2">
-
         <div class="col-sm-4 col-lg-4">
           <h4 class='label long-label pb-1'>Other Monthly Income</h4>
           <div class="d-flex flex-row">
             <span class='d-inline-flex pr-2'>$</span>
-            <input type="number" class="d-inline-flex" id="otherMonthlyIncome">
+            <input [(ngModel)]="income.otherMonthlyIncome" name='otherMonthlyIncome' type="number" class="d-inline-flex"
+              id="otherMonthlyIncomeInput">
           </div>
         </div>
 
         <div class='col-sm-4 col-lg-4'>
           <h5 class="label">Annual Increase</h5>
           <div class="d-flex flex-row">
-            <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+            <input [(ngModel)]="income.otherMonthlyIncomeAI" name='otherMonthlyIncomeAI' type="number" step=".01" class="d-inline-flex"
+              id="otherMonthlyIncomeAIInput">
             <span class='d-inline-flex pr-2'>%</span>
           </div>
         </div>
-
       </div>
 
       <div class="row sect-3">
-
         <div class="col-sm-4 col-lg-4">
           <h4 class='label'>Vacancy Rate</h4>
           <div class="d-flex flex-row">
-            <input type="number" class="d-inline-flex" id="vacancyRate">
+            <input [(ngModel)]="income.vacancyRate" name='vacancyRate' type="number" class="d-inline-flex" id="vacancyRateInput">
             <span class='d-inline-flex pr-2'>%</span>
           </div>
         </div>
@@ -60,13 +58,11 @@
         <div class='col-sm-4 col-lg-4'>
           <h5 class="label">Mgmt. Fee</h5>
           <div class="d-flex flex-row">
-            <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+            <input [(ngModel)]="income.mgmtFee" name='mgmtFee' type="number" step=".01" class="d-inline-flex" id="mgmtFeeInput">
             <span class='d-inline-flex pr-2'>%</span>
           </div>
         </div>
-
       </div>
-
     </div>
 
     <button mdbBtn type="button" color="orange" outline="true" mdbWavesEffect class='panel-footer'>Next</button>

@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./result-summary.component.scss']
 })
 export class ResultSummaryComponent implements OnInit {
+  elements: any = [
+    { id: 1, first: 'Mark', last: 'Otto', handle: '@mdo' },
+    { id: 2, first: 'Jacob', last: 'Thornton', handle: '@fat' },
+    { id: 3, first: 'Larry', last: 'the Bird', handle: '@twitter' }
+  ];
 
-  constructor() { }
+  headElements = ['ID', 'First', 'Last', 'Handle'];
 
-  ngOnInit() {
-  }
+  constructor() {}
 
+  ngOnInit() {}
 }

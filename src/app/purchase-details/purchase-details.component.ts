@@ -14,9 +14,24 @@ export class PurchaseDetailsComponent implements OnInit {
   //     this.valueChange.emit(this.counter);
   // }
 
-  @Input() isHidden = false;
+  @Input()
+  isHidden = false;
+
+  @Input()
+  purchase = {
+    purchasePrice: null,
+    downPayment: null,
+    interestRate: null,
+    loanTerm: null,
+    closingCost: null,
+    repairCost: null,
+    afterRepairValue: null
+  };
 
   ngOnInit() {}
+
+
+
 
 
 }

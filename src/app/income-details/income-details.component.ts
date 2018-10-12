@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-income-details',
@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./income-details.component.scss']
 })
 export class IncomeDetailsComponent implements OnInit {
+  @Input()
+  income = {
+    monthlyRent: null,
+    monthlyRentAI: null,
+    otherMonthlyIncome: null,
+    otherMonthlyIncomeAI: null,
+    vacancyRate: null,
+    mgmtFee: null
+  };
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
