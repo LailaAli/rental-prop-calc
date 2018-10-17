@@ -8,6 +8,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SellDetailsComponent implements OnInit {
   @Input()
   isHidden = false;
+
+  @Input()
+  sell = {
+    sellPrice: null,
+    valueAppreciation: null,
+    holdingLength: null,
+    costToSell: null
+  };
+
+  defaultChecked = false;
+
   constructor() {}
 
   ngOnInit() {}

@@ -1,4 +1,11 @@
-import { Component, OnInit, EventEmitter, Output, Input, } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ViewChild,
+} from '@angular/core';
+import { ToggleSwitchComponent } from '../common/toggle-switch/toggle-switch.component';
+
 
 @Component({
   selector: 'app-purchase-details',
@@ -6,16 +13,10 @@ import { Component, OnInit, EventEmitter, Output, Input, } from '@angular/core';
   styleUrls: ['./purchase-details.component.scss']
 })
 export class PurchaseDetailsComponent implements OnInit {
-  // @Output() valueChange = new EventEmitter();
-  // counter = 0;
-
-  // valueChanged() { // You can give any function name
-  //     this.counter = this.counter + 1;
-  //     this.valueChange.emit(this.counter);
-  // }
-
   @Input()
   isHidden = false;
+
+  @ViewChild(ToggleSwitchComponent) toggled: boolean;
 
   @Input()
   purchase = {
@@ -29,9 +30,4 @@ export class PurchaseDetailsComponent implements OnInit {
   };
 
   ngOnInit() {}
-
-
-
-
-
 }

@@ -7,16 +7,19 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { TabModule } from 'angular-tabs-component';
 
 import { AppComponent } from './app.component';
-import { PurchaseDetailsComponent } from './purchase-details/purchase-details.component';
-import { IncomeDetailsComponent } from './income-details/income-details.component';
-import { ExpensesDetailsComponent } from './expenses-details/expenses-details.component';
-import { SellDetailsComponent } from './sell-details/sell-details.component';
-import { ResultSummaryComponent } from './result-summary/result-summary.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { MdbExamplesComponent } from './mdb-examples/mdb-examples.component';
-import { AccordionComponent } from './common/accordion/accordion.component';
-import { PanelComponent } from './common/panel/panel.component';
-import { ToggleSwitchComponent } from './common/toggle-switch/toggle-switch.component';
+import { PurchaseDetailsComponent } from './components/purchase-details/purchase-details.component';
+import { IncomeDetailsComponent } from './components/income-details/income-details.component';
+import { ExpensesDetailsComponent } from './components/expenses-details/expenses-details.component';
+import { SellDetailsComponent } from './components/sell-details/sell-details.component';
+import { ResultSummaryComponent } from './components/result-summary/result-summary.component';
+import { NavbarComponent } from './components/common/navbar/navbar.component';
+import { MdbExamplesComponent } from './components/mdb-examples/mdb-examples.component';
+import { AccordionComponent } from './components/common/accordion/accordion.component';
+import { PanelComponent } from './components/common/panel/panel.component';
+import { ToggleSwitchComponent } from './components/common/toggle-switch/toggle-switch.component';
+import { HoldingLengthComponent } from './components/result-summary/holding-length/holding-length.component';
+import { YrOneComponent } from './components/result-summary/yr-one/yr-one.component';
+import { YearlyBreakdownComponent } from './components/result-summary/yearly-breakdown/yearly-breakdown.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { ToggleSwitchComponent } from './common/toggle-switch/toggle-switch.comp
     NavbarComponent,
     MdbExamplesComponent,
     ToggleSwitchComponent,
+    HoldingLengthComponent,
+    YrOneComponent,
+    YearlyBreakdownComponent,
   ],
   imports: [
     TabModule,

@@ -21,11 +21,11 @@
           <h4 class='label'>Finance</h4>
         </div>
         <div class="col-4 col-lg-1 col-md-1 col-sm-6 padding-bottom">
-          <app-toggle-switch></app-toggle-switch>
+          <app-toggle-switch [toggled]= 'toggled'></app-toggle-switch>
         </div>
       </div>
 
-      <div class="row toggle-section">
+      <div *ngIf='toggled' class="row toggle-section">
         <div class="col-lg-4 col-sm-4">
           <h4 class='label'>Down Payment</h4>
           <div class="d-flex flex-row">
@@ -33,6 +33,7 @@
             <input [(ngModel)]="purchase.downPayment" type="number" name='downPayment' class="d-inline-flex" id="downPayment">
           </div>
         </div>
+
 
         <div class="col-lg-4 col-sm-4">
           <h4 class="label">Interest Rate</h4>
@@ -50,6 +51,7 @@
           </div>
         </div>
       </div>
+
 
       <div class="row">
         <div class="col-sm-4 col-lg-4">

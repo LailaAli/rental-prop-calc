@@ -16,12 +16,15 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-sm-4 col-lg-4">
-          <h4 class='label pb-2.5'>Sell Price</h4>
-          <div class="d-flex flex-row">
-            <span class='d-inline-flex pr-2'>$</span>
-            <input type="number" class="d-inline-flex" id="sellPrice">
+      <div>
+        <div class="row">
+          <div class="col-sm-4 col-lg-4">
+            <h4 class='label pb-2.5'>Sell Price</h4>
+            <div class="d-flex flex-row">
+              <span class='d-inline-flex pr-2'>$</span>
+              <input [(ngModel)]="sell.sellPrice" name='sellPrice' type="number" class="d-inline-flex" id="sellPrice"
+                value={sell.sellPrice}>
+            </div>
           </div>
         </div>
       </div>
@@ -30,7 +33,8 @@
         <div class="col-lg-4 col-sm-4">
           <h4 class='label'>Value Appreciation</h4>
           <div class="d-flex flex-row padding-bottom">
-            <input type="number" class="d-inline-flex" id="valueAppreciation">
+            <input [(ngModel)]="sell.valueAppreciation" name='valueAppreciation' type="number" class="d-inline-flex" id="valueAppreciation"
+              value={sell.valueAppreciation}>
             <span class='d-inline-flex col-6'>% Per Yr</span>
           </div>
         </div>
@@ -38,7 +42,8 @@
         <div class="col-lg-4 col-sm-4">
           <h4 class="label">Holding Length</h4>
           <div class="d-flex flex-row padding-bottom">
-            <input type="number" step=".01" class="d-inline-flex" id="holdingLength">
+            <input [(ngModel)]="sell.holdingLength" name='holdingLength' type="number" step=".01" class="d-inline-flex"
+              id="holdingLength" value={sell.holdingLength}>
             <span class='d-inline-flex'>Yrs</span>
           </div>
         </div>
@@ -46,7 +51,8 @@
         <div class="col-lg-4 col-sm-4">
           <h4 class="label">Cost to Sell</h4>
           <div class="d-flex flex-row">
-            <input type="number" class="d-inline-flex" id="costToSell">
+            <input [(ngModel)]="sell.costToSell" name='costToSell' type="number" class="d-inline-flex" id="costToSell"
+              value={sell.costToSell}>
             <span class='d-inline-flex'>%</span>
           </div>
         </div>

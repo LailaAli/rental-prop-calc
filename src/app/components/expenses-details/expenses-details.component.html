@@ -10,17 +10,17 @@
       <div class="row sect-1">
 
         <div class="col-sm-4 col-lg-4">
-          <h4 class='label d-inline-flex'>Property Tax<h6 class='text-right'>Annual</h6></h4>
+          <h4 class='label d-inline-flex'>Property Tax<h6 class='text-right pl-2'>Annual</h6></h4>
           <div class="d-flex flex-row">
             <span class='d-inline-flex pr-2'>$</span>
-            <input type="number" class="d-inline-flex" id="purchasePrice">
+            <input [(ngModel)]="expenses.propertyTaxAnnual" name='propertyTaxAnnual' type="number" class="d-inline-flex" id="propertyTaxAnnual" value={expenses.propertyTaxAnnual}>
           </div>
         </div>
 
         <div class='col-sm-4 col-lg-4'>
           <h5 class="label">Annual Increase</h5>
           <div class="d-flex flex-row">
-            <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+            <input [(ngModel)]="expenses.propertyTaxAI" name='propertyTaxAI' type="number" step=".01" class="d-inline-flex" id="propertyTaxAI" value={expenses.propertyTaxAI}>
             <span class='d-inline-flex pr-2'>%</span>
           </div>
         </div>
@@ -29,17 +29,17 @@
 
       <div class="row sect-2">
         <div class="col-sm-4 col-lg-4">
-          <h4 class='label pb-1'>Total Insurance</h4>
+          <h4 class='label d-inline-flex pb-1'>Total Insurance<h6 class='text-right pl-2'>Annual</h6></h4>
           <div class="d-flex flex-row">
             <span class='d-inline-flex pr-2'>$</span>
-            <input type="number" class="d-inline-flex" id="purchasePrice">
+            <input [(ngModel)]="expenses.totalInsuranceAnnual" name='totalInsuranceAnnual' type="number" class="d-inline-flex" id="totalInsuranceAnnual">
           </div>
         </div>
 
         <div class='col-sm-4 col-lg-4'>
           <h5 class="label">Annual Increase</h5>
           <div class="d-flex flex-row">
-            <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+            <input [(ngModel)]="expenses.totalInsuranceAI" name='totalInsuranceAI' type="number" step=".01" class="d-inline-flex" id="interestRate" value={expenses.totalInsuranceAI}>
             <span class='d-inline-flex pr-2'>%</span>
           </div>
         </div>
@@ -47,17 +47,17 @@
 
       <div class="row sect-3">
         <div class="col-sm-4 col-lg-4">
-          <h4 class='label'>HOA Fee</h4>
+          <h4 class='label d-inline-flex'>HOA Fee <h6 class='text-right pl-2'>Annual</h6></h4>
           <div class="d-flex flex-row">
-            <input type="number" class="d-inline-flex" id="purchasePrice">
+            <input [(ngModel)]="expenses.hoaFeeAnnual" name='hoaFeesAnnual' type="number" class="d-inline-flex" id="purchasePrice" value={expenses.hoaFeeAnnual}>
             <span class='d-inline-flex pr-2'>%</span>
           </div>
         </div>
 
         <div class='col-sm-4 col-lg-4'>
-          <h5 class="label">Mgmt. Fee</h5>
+          <h5 class="label">Annual Increase</h5>
           <div class="d-flex flex-row">
-            <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+            <input [(ngModel)]="expenses.hoaFeeAI" name='hoaFeeAI' type="number" step=".01" class="d-inline-flex" id="hoaFeeAI" value={expeses.hoaFeeAI}>
             <span class='d-inline-flex pr-2'>%</span>
           </div>
         </div>
@@ -65,9 +65,9 @@
 
       <div class="row sect-1">
           <div class="col-sm-4 col-lg-4">
-            <h4 class='label'>Maintenance Fee</h4>
+            <h4 class='label d-inline-flex'>Maintenance Fee<h6 class='text-right pl-2'>Annual</h6></h4>
             <div class="d-flex flex-row">
-              <input type="number" class="d-inline-flex" id="purchasePrice">
+              <input [(ngModel)]="expenses.maintenanceAnnual" name='maintenanceAnnual' type="number" class="d-inline-flex" id="maintenanceAnnual" value={expenses.maintenanceAnnual}>
               <span class='d-inline-flex pr-2'>%</span>
             </div>
           </div>
@@ -75,7 +75,7 @@
           <div class='col-sm-4 col-lg-4'>
             <h5 class="label">Annual Increase</h5>
             <div class="d-flex flex-row">
-              <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+              <input [(ngModel)]="expenses.maintenanceAI" name='maintenanceAI' type="number" step=".01" class="d-inline-flex" id="maintenanceAI" value={expenses.maintenanceAI}>
               <span class='d-inline-flex pr-2'>%</span>
             </div>
           </div>
@@ -83,9 +83,9 @@
 
         <div class="row sect-2">
             <div class="col-sm-4 col-lg-4">
-              <h4 class='label'>Other Cost</h4>
+              <h4 class='label d-inline-flex'>Other Cost<h6 class='text-right pl-2'>Annual</h6></h4>
               <div class="d-flex flex-row">
-                <input type="number" class="d-inline-flex" id="purchasePrice">
+                <input [(ngModel)]="expenses.otherCostAnnual" name="otherCost" type="number" class="d-inline-flex" id="otherCost" value={expenses.otherCostAnnual}>
                 <span class='d-inline-flex pr-2'>%</span>
               </div>
             </div>
@@ -93,7 +93,7 @@
             <div class='col-sm-4 col-lg-4'>
               <h5 class="label">Annual Increase</h5>
               <div class="d-flex flex-row">
-                <input type="number" step=".01" class="d-inline-flex" id="interestRate">
+                <input [(ngModel)]="expenses.otherCostAI" name='otherCostAI' type="number" step=".01" class="d-inline-flex" id="otherCostAI" value={expenses.otherCostAI}>
                 <span class='d-inline-flex pr-2'>%</span>
               </div>
             </div>
