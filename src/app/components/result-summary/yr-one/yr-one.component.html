@@ -1,3 +1,9 @@
+<div class="container">
+    <div class='row col-12 offset-4'>
+      <button mdbBtn type="button" color="warning" outline="true" size="lg" mdbWavesEffect (click)='calculate()'>Calculate <mdb-icon icon="magic"
+          class="ml-1"></mdb-icon></button>
+    </div>
+  </div>
 <div class="card">
     <div class="card-header teal accent-3 white-text">Yr. One Income & Expenses</div>
 
@@ -30,12 +36,12 @@
         <h5>${{yrOne.mortPayMo}}</h5>
       </div>
       <div class='col-3'>
-        <h5>${{yrOne.incomeYr}}</h5>
+        <h5>${{yrOne.mortPayYr}}</h5>
       </div>
     </div>
     <div class=" row card-body">
       <div class='col-6'>
-        <h5 class="card-title">vacancy ({{income.vacancyRate}})</h5>
+        <h5 class="card-title">vacancy ({{income.vacancyRate}}%)</h5>
       </div>
       <div class='col-3'>
         <h5>${{yrOne.vacancyMo}}</h5>
@@ -52,7 +58,7 @@
         <h5>${{yrOne.propertyTaxMo}}</h5>
       </div>
       <div class='col-3'>
-        <h5>${{yrOne.incomeYr}}</h5>
+        <h5>${{yrOne.propertyTaxYr}}</h5>
       </div>
     </div>
     <div class=" row card-body">
@@ -63,7 +69,7 @@
         <h5>${{yrOne.totalInsuranceMo}}</h5>
       </div>
       <div class='col-3'>
-        <h5>${{yrOne.incomeYr}}</h5>
+        <h5>${{yrOne.totalInsuranceYr}}</h5>
       </div>
     </div>
     <div class=" row card-body">
@@ -85,7 +91,7 @@
         <h5>${{yrOne.otherCostMo}}</h5>
       </div>
       <div class='col-3'>
-        <h5>${{yrOne.incomeYr}}</h5>
+        <h5>${{yrOne.otherCostYr}}</h5>
       </div>
     </div>
     <div class=" row card-body">

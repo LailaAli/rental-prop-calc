@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   isHidden = true;
 
   purchase: any = {
-    purchasePrice: 300,
+    purchasePrice: null,
     downPayment: null,
     interestRate: null,
     loanTerm: null,
