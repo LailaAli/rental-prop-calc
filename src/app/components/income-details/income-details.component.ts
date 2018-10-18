@@ -7,14 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class IncomeDetailsComponent implements OnInit {
   @Input()
-  income = {
-    monthlyRent: null,
-    monthlyRentAI: null,
-    otherMonthlyIncome: null,
-    otherMonthlyIncomeAI: null,
-    vacancyRate: null,
-    mgmtFee: null
-  };
+  income: any = {};
 
   constructor() {}
 

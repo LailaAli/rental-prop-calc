@@ -9,13 +9,7 @@ export class SellDetailsComponent implements OnInit {
   @Input()
   isHidden = false;
 
-  @Input()
-  sell = {
-    sellPrice: null,
-    valueAppreciation: null,
-    holdingLength: null,
-    costToSell: null
-  };
+  @Input() sell: any = {};
 
   defaultChecked = false;
 

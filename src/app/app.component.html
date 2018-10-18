@@ -1,13 +1,13 @@
 <app-navbar></app-navbar>
 <!-- Main -->
 <div style='margin-top: 80px;'>
-  <app-purchase-details></app-purchase-details>
-  <app-income-details></app-income-details>
-  <app-expenses-details></app-expenses-details>
-  <app-sell-details [isHidden]='true'></app-sell-details>
+  <app-purchase-details [purchase]='purchase'></app-purchase-details>
 
-  <app-result-summary></app-result-summary>
+  <app-income-details [income]='income'></app-income-details>
 
+  <app-expenses-details [expenses]='expenses'></app-expenses-details>
 
+  <app-sell-details [isHidden]='true' [sell]='sell'></app-sell-details>
 
+  <app-result-summary [purchase]='purchase' [income]='income' [expenses]='expenses' [sell]='sell'></app-result-summary>
 </div>

@@ -6,19 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./expenses-details.component.scss']
 })
 export class ExpensesDetailsComponent implements OnInit {
-  @Input()
-  expenses = {
-    propertyTaxAnnual: null,
-    propertyTaxAI: null,
-    totalInsuranceAnnual: null,
-    totalInsuranceAI: null,
-    hoaFeeAnnual: null,
-    hoaFeeAI: null,
-    maintenanceAnnual: null,
-    maintenanceAI: null,
-    otherCostAnnual: null,
-    otherCostAI: null
-  };
+  @Input() expenses: any = {};
+
 
   constructor() {}
   ngOnInit() {}

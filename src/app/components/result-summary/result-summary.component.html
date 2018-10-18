@@ -1,15 +1,22 @@
 <div class="container">
+  <div class='row col-12 offset-4'>
+    <button mdbBtn type="button" color="warning" outline="true" size="lg" mdbWavesEffect>Calculate <mdb-icon icon="magic"
+        class="ml-1"></mdb-icon></button>
+  </div>
+</div>
+
+<div class="container">
   <tabs class="tab-background">
     <tab class="tab-background" tabTitle="Holding Length" active="true">
-      <app-holding-length></app-holding-length>
+      <app-holding-length [purchase]='purchase' [income]='income' [expenses]='expenses' [sell]='sell'></app-holding-length>
     </tab>
 
     <tab tabTitle="Yr. One">
-      <app-yr-one></app-yr-one>
+      <app-yr-one [purchase]='purchase' [income]='income' [expenses]='expenses' [sell]='sell'></app-yr-one>
     </tab>
 
     <tab tabTitle="Yearly Breakdown">
-      <app-yearly-breakdown></app-yearly-breakdown>
+      <app-yearly-breakdown [purchase]='purchase' [income]='income' [expenses]='expenses' [sell]='sell'></app-yearly-breakdown>
     </tab>
   </tabs>
 </div>
