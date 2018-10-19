@@ -15,7 +15,6 @@ export class IncomeDetailsComponent implements OnInit {
   }
 
   moRentUpdatedValue (event) {
-    console.log (this.income.monthlyRent);
     this.income.monthlyRent = event;
   }
 }

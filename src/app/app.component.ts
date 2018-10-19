@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-// import { PurchaseDetailsComponent } from './components/purchase-details/purchase-details.component';
+
 
 @Component({
   selector: 'app-root',
@@ -10,42 +10,42 @@ export class AppComponent implements OnInit {
   isHidden = true;
 
   purchase: any = {
-    purchasePrice: null,
-    downPayment: null,
-    interestRate: null,
-    loanTerm: null,
-    closingCost: null,
-    repairCost: null,
-    afterRepairValue: null
+    purchasePrice: 100000,
+    downPayment: 20000,
+    interestRate: 4.5,
+    loanTerm: 30,
+    closingCost: 2000,
+    repairCost: 2000,
+    afterRepairValue: 120000
   };
 
   income = {
-    monthlyRent: null,
-    monthlyRentAI: null,
+    monthlyRent: 1000,
+    monthlyRentAI: 3,
     otherMonthlyIncome: null,
-    otherMonthlyIncomeAI: null,
-    vacancyRate: null,
-    mgmtFee: null
+    otherMonthlyIncomeAI: 3,
+    vacancyRate: 5,
+    mgmtFee: 8
   };
 
   expenses = {
-    propertyTaxAnnual: 650,
-    propertyTaxAI: null,
-    totalInsuranceAnnual: null,
-    totalInsuranceAI: null,
-    hoaFeeAnnual: null,
-    hoaFeeAI: null,
-    maintenanceAnnual: null,
-    maintenanceAI: null,
-    otherCostAnnual: null,
-    otherCostAI: null
+    propertyTaxAnnual: 1500,
+    propertyTaxAI: 3,
+    totalInsuranceAnnual: 800,
+    totalInsuranceAI: 3,
+    hoaFeeAnnual: 1200,
+    hoaFeeAI: 3,
+    maintenanceAnnual: 1000,
+    maintenanceAI: 3,
+    otherCostAnnual: 200,
+    otherCostAI: 3
   };
 
   sell = {
-    sellPrice: 149000,
-    valueAppreciation: null,
-    holdingLength: null,
-    costToSell: null
+    sellPrice: 200000,
+    valueAppreciation: 3,
+    holdingLength: 20,
+    costToSell: 8
   };
 
   ngOnInit() {}

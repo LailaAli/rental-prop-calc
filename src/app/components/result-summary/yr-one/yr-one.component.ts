@@ -1,19 +1,11 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  OnChanges,
-  SimpleChanges,
-  SimpleChange,
-  ChangeDetectionStrategy
-} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-yr-one',
   templateUrl: './yr-one.component.html',
   styleUrls: ['./yr-one.component.scss']
 })
-export class YrOneComponent implements OnInit, OnChanges {
+export class YrOneComponent implements OnInit {
   @Input()
   purchase: any = {};
   @Input()
@@ -34,6 +26,8 @@ export class YrOneComponent implements OnInit, OnChanges {
     propertyTaxYr: null,
     totalInsuranceMo: null,
     totalInsuranceYr: null,
+    hoaFeeMo: null,
+    hoaFeeYr: null,
     maintenanceCostMo: null,
     maintenanceCostYr: null,
     otherCostMo: null,
@@ -47,15 +41,8 @@ export class YrOneComponent implements OnInit, OnChanges {
 
   ngOnInit() {}
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log('OnChanges');
-    console.log(JSON.stringify(changes));
-    this.moIncome();
-    this.yrIncome();
-  }
-
   moIncome() {
-    this.yrOne.incomeMo = this.income.monthlyRent;
+    this.yrOne.incomeMo = Math.ceil(this.income.monthlyRent);
   }
 
   yrIncome() {
@@ -84,9 +71,12 @@ export class YrOneComponent implements OnInit, OnChanges {
     mortgagePayments =
       (newHomePrice * (moAprRate * interestPayments)) / (interestPayments - 1);
 
-    this.yrOne.mortPayMo =
+    let roundedMortPay;
+    roundedMortPay =
       Math.round(parseFloat((mortgagePayments * Math.pow(10, 2)).toFixed(2))) /
       Math.pow(10, 2);
+
+    this.yrOne.mortPayMo = Math.ceil(roundedMortPay);
   }
 
   yrMortgagePayment() {
@@ -99,7 +89,114 @@ export class YrOneComponent implements OnInit, OnChanges {
         parseFloat((annualMortgagePayment * Math.pow(10, 2)).toFixed(2))
       ) / Math.pow(10, 2);
 
-      this.yrOne.mortPayYr = parsedAnnualMortgagePayment;
+    this.yrOne.mortPayYr = Math.ceil(parsedAnnualMortgagePayment);
+  }
+
+  moVacancy() {
+    let vacancyMo;
+    vacancyMo = (this.income.vacancyRate / this.income.monthlyRent) * 100 * 100;
+
+    this.yrOne.vacancyMo = Math.ceil(vacancyMo);
+  }
+
+  yrVacancy() {
+    let vacancyYr;
+    vacancyYr = this.yrOne.vacancyMo * 12;
+    this.yrOne.vacancyYr = vacancyYr;
+  }
+
+  moPropertyTax() {
+    let propTaxMo;
+    propTaxMo = this.expenses.propertyTaxAnnual / 12;
+    this.yrOne.propertyTaxMo = Math.ceil(propTaxMo);
+  }
+
+  yrPropertyTax() {
+    this.yrOne.propertyTaxYr = Math.ceil(this.expenses.propertyTaxAnnual);
+  }
+
+  moInsurance() {
+    let moInsurance;
+    moInsurance = this.expenses.totalInsuranceAnnual / 12;
+    this.yrOne.totalInsuranceMo = Math.ceil(moInsurance);
+  }
+
+  yrInsurance() {
+    this.yrOne.totalInsuranceYr = Math.ceil(this.expenses.totalInsuranceAnnual);
+  }
+
+  moHoaFee() {
+    let hoa;
+    hoa = this.expenses.hoaFeeAnnual / 12;
+    this.yrOne.hoaFeeMo = Math.ceil(hoa);
+  }
+
+  yrHoaFee() {
+    this.yrOne.hoaFeeYr = Math.ceil(this.expenses.hoaFeeAnnual);
+  }
+
+  moMaintenanceCost() {
+    let moMaintenanceCost;
+    moMaintenanceCost = this.expenses.maintenanceAnnual / 12;
+    this.yrOne.maintenanceCostMo = Math.ceil(moMaintenanceCost);
+  }
+
+  yrMaintenanceCost() {
+    this.yrOne.maintenanceCostYr = Math.ceil(this.expenses.maintenanceAnnual);
+  }
+
+  moOtherCost() {
+    let moOtherCost;
+    moOtherCost = this.expenses.otherCostAnnual / 12;
+    this.yrOne.otherCostMo = Math.ceil(moOtherCost);
+  }
+
+  yrOtherCost() {
+    this.yrOne.otherCostYr = Math.ceil(this.expenses.otherCostAnnual);
+  }
+
+  moCashFlow() {
+    let moCashFlow;
+    moCashFlow =
+      this.yrOne.incomeMo -
+      this.yrOne.mortPayMo -
+      this.yrOne.vacancyMo -
+      this.yrOne.propertyTaxMo -
+      this.yrOne.totalInsuranceMo -
+      this.yrOne.hoaFeeMo -
+      this.yrOne.maintenanceCostMo -
+      this.yrOne.otherCostMo;
+
+    this.yrOne.cashFlowMo = moCashFlow;
+  }
+
+  yrCashFlow() {
+    let cashFlowYr;
+    cashFlowYr = this.yrOne.cashFlowMo * 12;
+    this.yrOne.cashFlowYr = cashFlowYr;
+  }
+
+  moNoi() {
+    let expenses;
+    expenses =
+      Math.ceil(this.yrOne.vacancyMo) +
+      Math.ceil(this.yrOne.propertyTaxMo) +
+      Math.ceil(this.yrOne.totalInsuranceMo) +
+      Math.ceil(this.yrOne.hoaFeeMo) +
+      Math.ceil(this.yrOne.maintenanceCostMo) +
+      Math.ceil(this.yrOne.otherCostMo);
+
+    let nOIMo;
+    nOIMo = this.yrOne.incomeMo - expenses;
+
+    this.yrOne.nOIMo = nOIMo;
+  }
+
+  yrNoi() {
+    let nOIMo;
+    nOIMo = this.yrOne.nOIMo * 12;
+
+    this.yrOne.nOIYr = nOIMo;
   }
 
   calculate() {
@@ -107,5 +204,21 @@ export class YrOneComponent implements OnInit, OnChanges {
     this.yrIncome();
     this.moMortgagePayment();
     this.yrMortgagePayment();
+    this.moVacancy();
+    this.yrVacancy();
+    this.moPropertyTax();
+    this.yrPropertyTax();
+    this.moInsurance();
+    this.yrInsurance();
+    this.moHoaFee();
+    this.yrHoaFee();
+    this.moMaintenanceCost();
+    this.yrMaintenanceCost();
+    this.moOtherCost();
+    this.yrOtherCost();
+    this.moCashFlow();
+    this.yrCashFlow();
+    this.moNoi();
+    this.yrNoi();
   }
 }
