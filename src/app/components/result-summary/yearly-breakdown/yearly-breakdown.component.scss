@@ -1,0 +1,24 @@
+@import '../../../../styles.scss';
+
+table {
+  th {
+    font-size: 0.6rem !important;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: .75px;
+    color: #fff;
+    border: 1px solid #fff;
+    background-color: $teal;
+    padding: 5px;
+    vertical-align: text-top;
+    width: auto;
+  }
+  td {
+    font-size: 0.7em;
+    text-align: right;
+    background-color: #fff;
+    border: 1px solid gray;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}

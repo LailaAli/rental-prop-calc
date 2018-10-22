@@ -11,10 +11,5 @@ export class IncomeDetailsComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-  }
-
-  moRentUpdatedValue (event) {
-    this.income.monthlyRent = event;
-  }
+  ngOnInit() {}
 }

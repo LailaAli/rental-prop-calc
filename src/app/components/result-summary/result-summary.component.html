@@ -1,6 +1,6 @@
 <div class="container">
   <div class='row col-12 offset-4'>
-    <button mdbBtn type="button" color="warning" outline="true" size="lg" mdbWavesEffect>Calculate <mdb-icon icon="magic"
+    <button mdbBtn type="button" color="warning" outline="true" size="lg" mdbWavesEffect (click)='calculate()'>Calculate <mdb-icon icon="magic"
         class="ml-1"></mdb-icon></button>
   </div>
 </div>
@@ -12,11 +12,11 @@
     </tab>
 
     <tab tabTitle="Yr. One">
-      <app-yr-one [purchase]='purchase' [income]='income' [expenses]='expenses' [sell]='sell'></app-yr-one>
+      <app-yr-one [purchase]='purchase' [income]='income' [expenses]='expenses' [sell]='sell' [yrOne]='yrOne'></app-yr-one>
     </tab>
 
     <tab tabTitle="Yearly Breakdown">
-      <app-yearly-breakdown [purchase]='purchase' [income]='income' [expenses]='expenses' [sell]='sell'></app-yearly-breakdown>
+      <app-yearly-breakdown [purchase]='purchase' [income]='income' [expenses]='expenses' [sell]='sell' [breakdown]='breakdown' [yrOne]='yrOne'></app-yearly-breakdown>
     </tab>
   </tabs>
 </div>

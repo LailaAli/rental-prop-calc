@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { YrOneComponent } from '../yr-one/yr-one.component';
 
 @Component({
   selector: 'app-yearly-breakdown',
@@ -14,22 +15,24 @@ export class YearlyBreakdownComponent implements OnInit {
   expenses: any = {};
   @Input()
   sell: any = {};
+  @Input()
+  yrOne: any = {};
+  @Input()
+  breakdown: any = [];
 
-  breakdown = {
-    year: 1,
-    annualIncome: null,
-    mortgage: null,
-    expenses: null,
-    cashFlow: null,
-    cashOnReturn: null,
-    equityAccumulated: null,
-    cashToReceive: null,
-    return: null
-  };
+  headElements = [
+    'Yr',
+    'Annual Income',
+    'Mortgage',
+    'Expenses',
+    'Cash Flow',
+    'Cash on Cash Return',
+    'Equity Accumulated',
+    'Cash to Receive',
+    'Return (IRR)'
+  ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

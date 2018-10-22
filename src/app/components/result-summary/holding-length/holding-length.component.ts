@@ -6,27 +6,20 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./holding-length.component.scss']
 })
 export class HoldingLengthComponent implements OnInit {
+  @Input()
+  purchase: any = {};
+  @Input()
+  income: any = {};
+  @Input()
+  expenses: any = {};
+  @Input()
+  sell: any = {};
+  @Input()
+  holdingLength: any = {};
 
-  @Input() purchase: any = {};
-  @Input() income: any = {};
-  @Input() expenses: any = {};
-  @Input() sell: any = {};
-
-  @Input() holdingLength = {
-    irr: null,
-    totalProfitWhenSold: null,
-    cashOnReturn: null,
-    purchaseCapRate: null,
-    totalRentalIncome: null,
-    totalMortPayments: null,
-    totalExpenses: null,
-    totalNOI: null
-  };
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     console.log(this.purchase);
   }
-
 }
