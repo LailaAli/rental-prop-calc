@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SellDetailsComponent implements OnInit {
   @Input()
-  isHidden = false;
+  isHidden: boolean;
 
   @Input() sell: any = {};
 

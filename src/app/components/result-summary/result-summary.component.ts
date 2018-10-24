@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-result-summary',
@@ -6,6 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./result-summary.component.scss']
 })
 export class ResultSummaryComponent implements OnInit {
+  encapsulation: ViewEncapsulation.Emulated;
+
   @Input()
   purchase: any = {};
   @Input()
@@ -14,6 +16,10 @@ export class ResultSummaryComponent implements OnInit {
   expenses: any = {};
   @Input()
   sell: any = {};
+  @Input()
+  isHidden: boolean;
+
+  show = false;
 
   yrOne = {
     incomeMo: null,
@@ -35,7 +41,8 @@ export class ResultSummaryComponent implements OnInit {
     cashFlowMo: null,
     cashFlowYr: null,
     nOIMo: null,
-    nOIYr: null
+    nOIYr: null,
+    totalExpenses: null
   };
 
   breakdown: any = [
@@ -67,8 +74,8 @@ export class ResultSummaryComponent implements OnInit {
 
   ngOnInit() {}
 
+  //////////////////////
   // Yr One Calculations
-
   moIncome() {
     this.yrOne.incomeMo = Math.ceil(this.income.monthlyRent);
   }
@@ -205,8 +212,7 @@ export class ResultSummaryComponent implements OnInit {
   }
 
   moNoi() {
-    let expenses;
-    expenses =
+    this.yrOne.totalExpenses =
       Math.ceil(this.yrOne.vacancyMo) +
       Math.ceil(this.yrOne.propertyTaxMo) +
       Math.ceil(this.yrOne.totalInsuranceMo) +
@@ -215,7 +221,7 @@ export class ResultSummaryComponent implements OnInit {
       Math.ceil(this.yrOne.otherCostMo);
 
     let nOIMo;
-    nOIMo = this.yrOne.incomeMo - expenses;
+    nOIMo = this.yrOne.incomeMo - this.yrOne.totalExpenses;
 
     this.yrOne.nOIMo = nOIMo;
   }
@@ -226,7 +232,7 @@ export class ResultSummaryComponent implements OnInit {
 
     this.yrOne.nOIYr = nOIMo;
   }
-
+  ////////////////////////////////
   // Yearly Breakdown Calculations
   increaseYr() {
     this.breakdown.yr = this.breakdown.yr + 1;
@@ -234,32 +240,48 @@ export class ResultSummaryComponent implements OnInit {
   }
 
   annualIncome() {
+    // Monthly vacancy cost
     let vacancyMo;
     vacancyMo = (this.income.vacancyRate / this.income.monthlyRent) * 100 * 100;
     console.log(vacancyMo);
 
+    // Monthly income
     let monthlyIncome;
     monthlyIncome = this.income.monthlyRent - vacancyMo;
     console.log(monthlyIncome);
 
-    let annualIncome;
-    annualIncome = monthlyIncome * 12;
+    // Yearly income
+    let yearlyIncome;
+    yearlyIncome = monthlyIncome * 12;
+    console.log(yearlyIncome);
 
-    this.breakdown.annualIncome = Math.ceil(annualIncome);
-    console.log(this.breakdown.annualIncome);
+    // Convert MonthlyRentAI to percent
+    let monthlyRentAI;
+    monthlyRentAI = (this.income.monthlyRentAI / 100 + 1).toFixed(2);
+    console.log(monthlyRentAI);
+
+    // Increment Yr Income by MonthlyRentAI UNTIL HoldingLength
+    this.breakdown.yearlyIncome = yearlyIncome * monthlyRentAI;
+    console.log(this.breakdown.yearlyIncome);
   }
 
-  update () {
-    this.breakdown.annualIncome = 400 + 1;
-    console.log(this.breakdown.annualIncome);
-  }
-
-
-
+  //////////////////////////////
   // Holding Length Calculations
+  totalMortgagePayments() {
+    this.holdingLength.totalMortPayments =
+      this.yrOne.mortPayYr * this.sell.holdingLength;
+  }
+
+  purchaseCapRate() {
+    let capRate;
+    capRate = (this.yrOne.nOIYr / this.purchase.purchasePrice) * 100;
+
+    this.holdingLength.purchaseCapRate = parseFloat(capRate).toFixed(2);
+  }
 
   calculate() {
-
+    this.show = true;
+    this.isHidden = true;
     // Year One
     this.moIncome();
     this.yrIncome();
@@ -282,12 +304,12 @@ export class ResultSummaryComponent implements OnInit {
     this.moNoi();
     this.yrNoi();
 
-    // Yearly
+    // Yearly Breakdown
     this.increaseYr();
     this.annualIncome();
-    this.update();
 
     // Holding Length
+    this.totalMortgagePayments();
+    this.purchaseCapRate();
   }
-
 }

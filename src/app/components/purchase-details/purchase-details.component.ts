@@ -8,11 +8,11 @@ import { ToggleSwitchComponent } from '../common/toggle-switch/toggle-switch.com
 })
 export class PurchaseDetailsComponent implements OnInit {
   @Input()
-  isHidden = false;
+  isHidden: boolean;
   @ViewChild(ToggleSwitchComponent)
   toggled: boolean;
   @Input()
-  purchase = {};
+  purchase: any = {};
 
   constructor() {}
 

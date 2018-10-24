@@ -5,10 +5,10 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container" *ngIf="show">
   <tabs class="tab-background">
     <tab class="tab-background" tabTitle="Holding Length" active="true">
-      <app-holding-length [purchase]='purchase' [income]='income' [expenses]='expenses' [sell]='sell'></app-holding-length>
+      <app-holding-length [purchase]='purchase' [income]='income' [expenses]='expenses' [sell]='sell' [yrOne]='yrOne' [holdingLength]='holdingLength'></app-holding-length>
     </tab>
 
     <tab tabTitle="Yr. One">

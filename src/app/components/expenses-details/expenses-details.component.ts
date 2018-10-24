@@ -6,6 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./expenses-details.component.scss']
 })
 export class ExpensesDetailsComponent implements OnInit {
+  @Input() isHidden: boolean;
   @Input() expenses: any = {};
 
 

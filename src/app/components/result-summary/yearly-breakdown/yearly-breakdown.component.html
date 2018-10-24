@@ -1,19 +1,22 @@
-<table mdbTable small="true">
-  <thead>
-    <tr>
-      <th *ngFor='let head of headElements' scope="col" class='table-header'>{{head}}</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr mdbTableCol *ngFor='let b of breakdown'>
-      <td class='text-right'> {{b.yr}} </td>
-      <td>$ {{b.annualIncome}} </td>
-      <td>$ {{b.mortgage}} </td>
-      <td>$ {{b.expenses}} </td>
-      <td>$ {{b.cashFlow}} </td>
-      <td> {{b.cashOnReturn}} % </td>
-      <td>$ {{b.equityAccumulated}} </td>
-      <td>$ {{b.cashToReceive}} </td>
-      <td> {{b.return}} %</td>
-    </tr>
-  </tbody>
+<div class="table-responsive">
+  <table mdbTable small="true">
+    <thead>
+      <tr>
+        <th *ngFor='let head of headElements' scope="col" class='table-header th-sm'>{{head}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor='let b of breakdown'>
+        <td class='text-right'> {{b.yr}} </td>
+        <td>$ {{b.annualIncome}} </td>
+        <td>$ {{b.mortgage}} </td>
+        <td>$ {{b.expenses}} </td>
+        <td>$ {{b.cashFlow}} </td>
+        <td> {{b.cashOnReturn}} % </td>
+        <td>$ {{b.equityAccumulated}} </td>
+        <td>$ {{b.cashToReceive}} </td>
+        <td> {{b.return}} %</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
