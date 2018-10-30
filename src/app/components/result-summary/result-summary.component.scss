@@ -23,65 +23,22 @@
   }
 }
 
-// :host {
-//   display: block ;
-//   font-size: inherit;
-//   background-color: white;
-// }
-
-:host ::ng-deep >>> tab {
-  border-color: gold ;
+:host ::ng-deep .tabs__panel {
+  .tabs__tab-bar {
+    background-color: $teal !important;
+  }
+  background-color: white !important;
+  box-shadow: none !important;
 }
 
-:host ::ng-deep >>> tab {
-  border-color: aqua ;
-}
-
-#col-header-top-space ::ng-deep tab {
-  margin-top: 0px;
-  margin-right: 2px;
-  margin-left: 2px;
-  border-bottom: 2px dotted $teal;
-}
-
-*[_ngcontent-c9]::ng-deep tab {
-  margin: 0px;
+:host::ng-deep [_nghost-c7] {
   padding: 0px;
+  min-height: 0px;
 }
+
 [_nghost-c9] {
-  padding: 10px 10px;
+  padding: 0px;
   margin: 0px;
-  display: flex;
-  flex-direction: column;
   position: relative;
   min-height: 0px;
 }
-// .tabs__tab-bar[_ngcontent-c9] > tab {
-//   align-self: center;
-//   border-radius: 4px;
-//   overflow: hidden;
-//   margin-bottom: -12px;
-//   z-index: 1000;
-//   border: 1px solid #c9c9c9;
-// }
-// .tabs__tab[_ngcontent-c9] > tab {
-//   padding: 4px 10px;
-//   display: inline-block;
-//   background-color: white;
-//   cursor: pointer;
-// }
-// .tabs__tab.active[_ngcontent-c9] > tab {
-//   background-color: $teal !important;
-//   color: white;
-// }
-// .overlay[_ngcontent-c9] {
-//   background: none;
-//   opacity: 0.5;
-//   bottom: 0;
-//   left: 0;
-//   position: absolute;
-//   right: 0;
-//   top: 0;
-//   z-index: 1000;
-// }
-

@@ -99,30 +99,3 @@ h6 {
     padding-top: 25px;
   }
 }
-
-:host {
-  display: block ;
-  font-size: inherit;
-  background-color: white;
-}
-
-:host ::ng-deep > tab {
-  border-color: gold ;
-}
-
-:host ::ng-deep > tab {
-  border-color: aqua ;
-}
-
-[_nghost-c7] {
-  padding: 0px;
-  min-height: 0px;
-}
-
-.tabs__panel {
-  background-color: white;
-  width: 100%;
-  box-shadow: none;
-  border-radius: 6px;
-  padding: 0px 0px;
-}

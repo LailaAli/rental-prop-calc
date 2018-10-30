@@ -1,8 +1,8 @@
 <app-navbar></app-navbar>
 <!-- Main -->
-<app-result-summary [isHidden]='isHidden' [purchase]='purchase' [income]='income' [expenses]='expenses' [sell]='sell'></app-result-summary>
+<div class='container-fluid'>
+  <app-result-summary [isHidden]='isHidden' [purchase]='purchase' [income]='income' [expenses]='expenses' [sell]='sell'></app-result-summary>
 
-<div>
   <app-purchase-details [purchase]='purchase' [isHidden]='isHidden'></app-purchase-details>
 
   <app-income-details [income]='income' [isHidden]="isHidden"></app-income-details>
