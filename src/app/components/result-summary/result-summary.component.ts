@@ -20,6 +20,7 @@ export class ResultSummaryComponent implements OnInit {
   isHidden: boolean;
 
   show = false;
+  yr = [];
 
   yrOne = {
     incomeMo: null,
@@ -46,6 +47,17 @@ export class ResultSummaryComponent implements OnInit {
   };
 
   breakdown: any = [
+    {
+      yr: 0,
+      annualIncome: 5000,
+      mortgage: 405,
+      expenses: 300,
+      cashFlow: 2400,
+      cashOnReturn: 5,
+      equityAccumulated: 7000,
+      cashToReceive: 6700,
+      return: 5
+    },
     {
       yr: 1,
       annualIncome: 5000,
@@ -234,9 +246,14 @@ export class ResultSummaryComponent implements OnInit {
   }
   ////////////////////////////////
   // Yearly Breakdown Calculations
-  increaseYr() {
-    this.breakdown.yr = this.breakdown.yr + 1;
-    console.log(this.breakdown.yr);
+
+  // for loop over years
+  years() {
+    for (let i = 0; i <= this.sell.holdingLength; i++) {
+      this.yr.push(i);
+    }
+    console.log(this.yr);
+    console.log(this.yr[0]);
   }
 
   annualIncome() {
@@ -255,14 +272,23 @@ export class ResultSummaryComponent implements OnInit {
     yearlyIncome = monthlyIncome * 12;
     console.log(yearlyIncome);
 
-    // Convert MonthlyRentAI to percent
-    let monthlyRentAI;
-    monthlyRentAI = (this.income.monthlyRentAI / 100 + 1).toFixed(2);
-    console.log(monthlyRentAI);
+    // Annual Rent Increase
+    // Convert annualRentIncrease to percent
+    this.income.annualRentIncrease = (
+      this.income.annualRentIncrease / 100 +
+      1
+    ).toFixed(2);
+    console.log('income.annualRentIncrease ' + this.income.annualRentIncrease);
 
-    // Increment Yr Income by MonthlyRentAI UNTIL HoldingLength
-    this.breakdown.yearlyIncome = yearlyIncome * monthlyRentAI;
-    console.log(this.breakdown.yearlyIncome);
+    // Yearly Income w/annual increase
+    let annualIncomeWIncrease;
+    annualIncomeWIncrease = yearlyIncome * this.income.annualRentIncrease;
+    console.log('annualIncomeWIncrease ' + annualIncomeWIncrease);
+
+    // for (const breakdown of this.breakdown) {
+    //   // annualIncome =  yrlyIncomeWIncrease;
+    //   console.log(this.breakdown.annualIncome);
+    // }
   }
 
   //////////////////////////////
@@ -305,7 +331,7 @@ export class ResultSummaryComponent implements OnInit {
     this.yrNoi();
 
     // Yearly Breakdown
-    this.increaseYr();
+    this.years();
     this.annualIncome();
 
     // Holding Length

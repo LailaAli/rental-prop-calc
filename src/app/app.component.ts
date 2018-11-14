@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
 
   income = {
     monthlyRent: 1000,
-    monthlyRentAI: 3,
+    annualRentIncrease: 3,
     otherMonthlyIncome: null,
     otherMonthlyIncomeAI: 3,
     vacancyRate: 5,
