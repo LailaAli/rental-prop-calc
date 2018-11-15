@@ -14,18 +14,24 @@ export class AppComponent implements OnInit {
     downPayment: 20000,
     interestRate: 4.5,
     loanTerm: 30,
-    closingCost: 2000,
-    repairCost: 2000,
-    afterRepairValue: 120000
+    closingCost: 3000,
+    repairCost: 10000,
+    afterRepairValue: 150000,
+    cashInvested: null,
   };
 
   income = {
     monthlyRent: 1000,
     annualRentIncrease: 3,
-    otherMonthlyIncome: null,
+    otherMonthlyIncome: 0,
     otherMonthlyIncomeAI: 3,
     vacancyRate: 5,
-    mgmtFee: 8
+    mgmtFee: 0,
+    effectiveMonthlyIncome: null,
+    effectiveAnnualIncome: null,
+    annualIncomeWIncrease: null,
+    annualCashFlow: null,
+    cashOnCashReturn: null,
   };
 
   expenses = {
@@ -33,12 +39,16 @@ export class AppComponent implements OnInit {
     propertyTaxAI: 3,
     totalInsuranceAnnual: 800,
     totalInsuranceAI: 3,
-    hoaFeeAnnual: 1200,
+    hoaFeeAnnual: 0,
     hoaFeeAI: 3,
     maintenanceAnnual: 1000,
     maintenanceAI: 3,
     otherCostAnnual: 200,
-    otherCostAI: 3
+    otherCostAI: 3,
+    moMortgage: null,
+    annualMortgage: null,
+    totalAnnualExpenses: null,
+    totalAnnualExpensesWIncrease: null,
   };
 
   sell = {

@@ -20,6 +20,5 @@ export class HoldingLengthComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this.purchase);
   }
 }

@@ -43,12 +43,12 @@ export class ResultSummaryComponent implements OnInit {
     cashFlowYr: null,
     nOIMo: null,
     nOIYr: null,
-    totalExpenses: null
+    totalMoExpenses: null
   };
 
   breakdown: any = [
     {
-      yr: 0,
+      yr: 2,
       annualIncome: 5000,
       mortgage: 405,
       expenses: 300,
@@ -59,7 +59,7 @@ export class ResultSummaryComponent implements OnInit {
       return: 5
     },
     {
-      yr: 1,
+      yr: 3,
       annualIncome: 5000,
       mortgage: 405,
       expenses: 300,
@@ -86,8 +86,10 @@ export class ResultSummaryComponent implements OnInit {
 
   ngOnInit() {}
 
-  //////////////////////
-  // Yr One Calculations
+  //////////////////////////////////
+  // YEAR ONE CALCULATIONS //
+  /////////////////////////////////
+
   moIncome() {
     this.yrOne.incomeMo = Math.ceil(this.income.monthlyRent);
   }
@@ -124,6 +126,9 @@ export class ResultSummaryComponent implements OnInit {
       Math.pow(10, 2);
 
     this.yrOne.mortPayMo = Math.ceil(roundedMortPay);
+    this.expenses.moMortgage = Math.ceil(roundedMortPay);
+    console.log('yrOne.mortPayMo ' + this.yrOne.mortPayMo);
+    console.log('expenses.moMortgage ' + this.expenses.moMortgage);
   }
 
   yrMortgagePayment() {
@@ -137,25 +142,22 @@ export class ResultSummaryComponent implements OnInit {
       ) / Math.pow(10, 2);
 
     this.yrOne.mortPayYr = Math.ceil(parsedAnnualMortgagePayment);
+    this.expenses.annualMortgage = Math.ceil(parsedAnnualMortgagePayment);
+    console.log('expenses.annualMortgage ' + this.expenses.annualMortgage);
   }
 
   moVacancy() {
-    let vacancyMo;
-    vacancyMo = (this.income.vacancyRate / this.income.monthlyRent) * 100 * 100;
-
-    this.yrOne.vacancyMo = Math.ceil(vacancyMo);
+    this.yrOne.vacancyMo = Math.ceil(
+      (this.income.vacancyRate / this.income.monthlyRent) * 100 * 100
+    );
   }
 
   yrVacancy() {
-    let vacancyYr;
-    vacancyYr = this.yrOne.vacancyMo * 12;
-    this.yrOne.vacancyYr = vacancyYr;
+    this.yrOne.vacancyYr = this.yrOne.vacancyMo * 12;
   }
 
   moPropertyTax() {
-    let propTaxMo;
-    propTaxMo = this.expenses.propertyTaxAnnual / 12;
-    this.yrOne.propertyTaxMo = Math.ceil(propTaxMo);
+    this.yrOne.propertyTaxMo = Math.ceil(this.expenses.propertyTaxAnnual / 12);
   }
 
   yrPropertyTax() {
@@ -163,9 +165,9 @@ export class ResultSummaryComponent implements OnInit {
   }
 
   moInsurance() {
-    let moInsurance;
-    moInsurance = this.expenses.totalInsuranceAnnual / 12;
-    this.yrOne.totalInsuranceMo = Math.ceil(moInsurance);
+    this.yrOne.totalInsuranceMo = Math.ceil(
+      this.expenses.totalInsuranceAnnual / 12
+    );
   }
 
   yrInsurance() {
@@ -173,9 +175,7 @@ export class ResultSummaryComponent implements OnInit {
   }
 
   moHoaFee() {
-    let hoa;
-    hoa = this.expenses.hoaFeeAnnual / 12;
-    this.yrOne.hoaFeeMo = Math.ceil(hoa);
+    this.yrOne.hoaFeeMo = Math.ceil(this.expenses.hoaFeeAnnual / 12);
   }
 
   yrHoaFee() {
@@ -183,9 +183,9 @@ export class ResultSummaryComponent implements OnInit {
   }
 
   moMaintenanceCost() {
-    let moMaintenanceCost;
-    moMaintenanceCost = this.expenses.maintenanceAnnual / 12;
-    this.yrOne.maintenanceCostMo = Math.ceil(moMaintenanceCost);
+    this.yrOne.maintenanceCostMo = Math.ceil(
+      this.expenses.maintenanceAnnual / 12
+    );
   }
 
   yrMaintenanceCost() {
@@ -193,9 +193,7 @@ export class ResultSummaryComponent implements OnInit {
   }
 
   moOtherCost() {
-    let moOtherCost;
-    moOtherCost = this.expenses.otherCostAnnual / 12;
-    this.yrOne.otherCostMo = Math.ceil(moOtherCost);
+    this.yrOne.otherCostMo = Math.ceil(this.expenses.otherCostAnnual / 12);
   }
 
   yrOtherCost() {
@@ -203,8 +201,7 @@ export class ResultSummaryComponent implements OnInit {
   }
 
   moCashFlow() {
-    let moCashFlow;
-    moCashFlow =
+    this.yrOne.cashFlowMo =
       this.yrOne.incomeMo -
       this.yrOne.mortPayMo -
       this.yrOne.vacancyMo -
@@ -213,43 +210,37 @@ export class ResultSummaryComponent implements OnInit {
       this.yrOne.hoaFeeMo -
       this.yrOne.maintenanceCostMo -
       this.yrOne.otherCostMo;
-
-    this.yrOne.cashFlowMo = moCashFlow;
   }
 
   yrCashFlow() {
-    let cashFlowYr;
-    cashFlowYr = this.yrOne.cashFlowMo * 12;
-    this.yrOne.cashFlowYr = cashFlowYr;
+    this.yrOne.cashFlowYr = this.yrOne.cashFlowMo * 12;
   }
 
   moNoi() {
-    this.yrOne.totalExpenses =
+    this.yrOne.totalMoExpenses =
       Math.ceil(this.yrOne.vacancyMo) +
       Math.ceil(this.yrOne.propertyTaxMo) +
       Math.ceil(this.yrOne.totalInsuranceMo) +
       Math.ceil(this.yrOne.hoaFeeMo) +
       Math.ceil(this.yrOne.maintenanceCostMo) +
       Math.ceil(this.yrOne.otherCostMo);
+    console.log('yrOne.totalMoExpenses ' + this.yrOne.totalMoExpenses);
 
-    let nOIMo;
-    nOIMo = this.yrOne.incomeMo - this.yrOne.totalExpenses;
-
-    this.yrOne.nOIMo = nOIMo;
+    this.yrOne.nOIMo = this.yrOne.incomeMo - this.yrOne.totalMoExpenses;
+    console.log('yrOne.nOIMo ' + this.yrOne.nOIMo);
   }
 
   yrNoi() {
-    let nOIMo;
-    nOIMo = this.yrOne.nOIMo * 12;
-
-    this.yrOne.nOIYr = nOIMo;
+    this.yrOne.nOIYr = this.yrOne.nOIMo * 12;
   }
-  ////////////////////////////////
-  // Yearly Breakdown Calculations
+
+  //////////////////////////////////
+  // YEARLY BREAKDOWN CALCULATIONS //
+  /////////////////////////////////
 
   // for loop over years
   years() {
-    for (let i = 0; i <= this.sell.holdingLength; i++) {
+    for (let i = 2; i <= this.sell.holdingLength; i++) {
       this.yr.push(i);
     }
     console.log(this.yr);
@@ -258,41 +249,96 @@ export class ResultSummaryComponent implements OnInit {
 
   annualIncome() {
     // Monthly vacancy cost
-    let vacancyMo;
-    vacancyMo = (this.income.vacancyRate / this.income.monthlyRent) * 100 * 100;
-    console.log(vacancyMo);
+    this.income.vacancyRate =
+      (this.income.vacancyRate / this.income.monthlyRent) * 100 * 100;
+    console.log('income.vacancyRate ' + this.income.vacancyRate);
 
-    // Monthly income
-    let monthlyIncome;
-    monthlyIncome = this.income.monthlyRent - vacancyMo;
-    console.log(monthlyIncome);
+    // Effective Monthly income
+    this.income.effectiveMonthlyIncome =
+      this.income.monthlyRent - this.income.vacancyRate;
+    console.log(
+      'icome.effectiveMonthlyIncome ' + this.income.effectiveMonthlyIncome
+    );
 
-    // Yearly income
-    let yearlyIncome;
-    yearlyIncome = monthlyIncome * 12;
-    console.log(yearlyIncome);
+    // Effective Yearly income
+    this.income.effectiveAnnualIncome = this.income.effectiveMonthlyIncome * 12;
+    console.log(
+      'income.effectiveAnnualIncome ' + this.income.effectiveAnnualIncome
+    );
 
     // Annual Rent Increase
-    // Convert annualRentIncrease to percent
     this.income.annualRentIncrease = (
       this.income.annualRentIncrease / 100 +
       1
     ).toFixed(2);
     console.log('income.annualRentIncrease ' + this.income.annualRentIncrease);
 
-    // Yearly Income w/annual increase
-    let annualIncomeWIncrease;
-    annualIncomeWIncrease = yearlyIncome * this.income.annualRentIncrease;
-    console.log('annualIncomeWIncrease ' + annualIncomeWIncrease);
-
-    // for (const breakdown of this.breakdown) {
-    //   // annualIncome =  yrlyIncomeWIncrease;
-    //   console.log(this.breakdown.annualIncome);
-    // }
+    // Annual Income w/annual increase
+    this.income.annualIncomeWIncrease =
+      this.income.effectiveAnnualIncome * this.income.annualRentIncrease;
+    console.log(
+      'income.annualIncomeWIncrease ' + this.income.annualIncomeWIncrease
+    );
   }
 
-  //////////////////////////////
-  // Holding Length Calculations
+  annualExpenses() {
+    // Annual Expenses w/annual increase
+    this.expenses.totalAnnualExpensesWIncrease =
+      this.expenses.propertyTaxAnnual *
+        (this.expenses.propertyTaxAI / 100 + 1) +
+      this.expenses.totalInsuranceAnnual *
+        (this.expenses.totalInsuranceAI / 100 + 1) +
+      this.expenses.hoaFeeAnnual * (this.expenses.hoaFeeAI / 100 + 1) +
+      this.expenses.maintenanceAnnual *
+        (this.expenses.maintenanceAI / 100 + 1) +
+      this.expenses.otherCostAnnual * (this.expenses.otherCostAI / 100 + 1);
+    console.log(
+      'expenses.totalAnnualExpensesWIncrease ' +
+        this.expenses.totalAnnualExpensesWIncrease
+    );
+  }
+
+  annualCashFlow() {
+    // Annual cashflow
+    this.income.annualCashflow =
+      this.income.annualIncomeWIncrease -
+      (this.expenses.annualMortgage +
+        this.expenses.totalAnnualExpensesWIncrease);
+    console.log(
+      'income.annualIncomeWIncrease ' + this.income.annualIncomeWIncrease
+    );
+    console.log('expenses.annualMortgage ' + this.expenses.annualMortgage);
+    console.log(
+      'expenses.totalAnnualExpensesWIncrease ' +
+        this.expenses.totalAnnualExpensesWIncrease
+    );
+    console.log('income.annualCashFlow ' + this.income.annualCashflow);
+  }
+
+  cashOnCashReturn() {
+    // (CashFlow / CashInvested)*100
+    this.purchase.cashInvested =
+      this.purchase.downPayment +
+      this.purchase.closingCost +
+      this.purchase.repairCost;
+      console.log('cashInvested ' + this.purchase.cashInvested);
+
+    let cashOnCashReturn;
+    cashOnCashReturn = (this.income.annualCashflow / this.purchase.cashInvested) * 100;
+    console.log(cashOnCashReturn);
+    this.income.cashOnCashReturn = parseFloat(cashOnCashReturn).toFixed(2);
+    console.log('income.cashOnCashReturn ' + this.income.cashOnCashReturn);
+  }
+
+  // for (const breakdown of this.breakdown) {
+  //   // annualIncome =  yrlyIncomeWIncrease;
+  //   console.log(this.breakdown.annualIncome);
+  // }
+
+  //////////////////////////////////
+  // HOLDING LENGTH CALCULATIONS //
+  /////////////////////////////////
+
   totalMortgagePayments() {
     this.holdingLength.totalMortPayments =
       this.yrOne.mortPayYr * this.sell.holdingLength;
@@ -333,6 +379,9 @@ export class ResultSummaryComponent implements OnInit {
     // Yearly Breakdown
     this.years();
     this.annualIncome();
+    this.annualExpenses();
+    this.annualCashFlow();
+    this.cashOnCashReturn();
 
     // Holding Length
     this.totalMortgagePayments();
