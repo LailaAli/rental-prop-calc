@@ -8,17 +8,19 @@ import { YrOneComponent } from '../yr-one/yr-one.component';
 })
 export class YearlyBreakdownComponent implements OnInit {
   @Input()
-  purchase: any = {};
+  purchase;
   @Input()
-  income: any = {};
+  income;
   @Input()
-  expenses: any = {};
+  expenses;
   @Input()
-  sell: any = {};
+  sell;
   @Input()
-  yrOne: any = {};
+  yrOne;
   @Input()
-  breakdown: any = [];
+  breakdown;
+  @Input()
+  breakdownYrOne;
 
   headElements = [
     'Yr',

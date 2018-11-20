@@ -7,17 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class YrOneComponent implements OnInit {
   @Input()
-  purchase: any = {};
+  purchase;
   @Input()
-  income: any = {};
+  income;
   @Input()
-  expenses: any = {};
+  expenses;
   @Input()
-  sell: any = {};
-  @Input() yrOne: any = {};
+  sell;
+  @Input()
+  yrOne;
 
   constructor() {}
 
   ngOnInit() {}
-
 }

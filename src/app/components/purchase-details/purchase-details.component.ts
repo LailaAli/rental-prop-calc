@@ -12,7 +12,7 @@ export class PurchaseDetailsComponent implements OnInit {
   @ViewChild(ToggleSwitchComponent)
   toggled: boolean;
   @Input()
-  purchase: any = {};
+  purchase;
 
   constructor() {}
 

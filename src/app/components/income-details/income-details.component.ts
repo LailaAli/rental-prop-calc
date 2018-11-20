@@ -6,9 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./income-details.component.scss']
 })
 export class IncomeDetailsComponent implements OnInit {
-  @Input() isHidden: boolean;
   @Input()
-  income: any = {};
+  isHidden: boolean;
+  @Input()
+  income;
 
   constructor() {}
 

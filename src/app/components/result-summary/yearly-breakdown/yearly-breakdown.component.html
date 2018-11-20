@@ -6,6 +6,17 @@
       </tr>
     </thead>
     <tbody>
+      <tr mdbTableCol>
+        <td class='text-right'> {{breakdownYrOne.yr}} </td>
+        <td>$ {{breakdownYrOne.annualIncome}} </td>
+        <td>$ {{breakdownYrOne.mortgage}} </td>
+        <td>$ {{breakdownYrOne.expenses}} </td>
+        <td>$ {{breakdownYrOne.cashFlow}} </td>
+        <td> {{breakdownYrOne.cashOnReturn}} % </td>
+        <td>$ {{breakdownYrOne.equityAccumulated}} </td>
+        <td>$ {{breakdownYrOne.cashToReceive}} </td>
+        <td> {{breakdownYrOne.return}} %</td>
+      </tr>
       <tr mdbTableCol *ngFor='let b of breakdown'>
         <td class='text-right'> {{b.yr}} </td>
         <td>$ {{b.annualIncome}} </td>

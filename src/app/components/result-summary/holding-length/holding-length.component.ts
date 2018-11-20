@@ -7,15 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class HoldingLengthComponent implements OnInit {
   @Input()
-  purchase: any = {};
+  purchase;
   @Input()
-  income: any = {};
+  income;
   @Input()
-  expenses: any = {};
+  expenses;
   @Input()
-  sell: any = {};
+  sell;
   @Input()
-  holdingLength: any = {};
+  holdingLength;
 
   constructor() {}
 

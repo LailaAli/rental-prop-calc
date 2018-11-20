@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ExpensesDetailsComponent implements OnInit {
   @Input() isHidden: boolean;
-  @Input() expenses: any = {};
+  @Input() expenses;
 
 
   constructor() {}

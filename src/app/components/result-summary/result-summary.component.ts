@@ -9,13 +9,13 @@ export class ResultSummaryComponent implements OnInit {
   encapsulation: ViewEncapsulation.Emulated;
 
   @Input()
-  purchase: any = {};
+  purchase;
   @Input()
-  income: any = {};
+  income;
   @Input()
-  expenses: any = {};
+  expenses;
   @Input()
-  sell: any = {};
+  sell;
   @Input()
   isHidden: boolean;
 
@@ -43,7 +43,8 @@ export class ResultSummaryComponent implements OnInit {
     cashFlowYr: null,
     nOIMo: null,
     nOIYr: null,
-    totalMoExpenses: null
+    totalMoExpensesWVacancy: null,
+    totalAnnualExpenses: null
   };
 
   breakdown: any = [
@@ -70,6 +71,18 @@ export class ResultSummaryComponent implements OnInit {
       return: 5
     }
   ];
+
+  breakdownYrOne: any = {
+    yr: 1,
+    annualIncome: null,
+    mortgage: null,
+    expenses: null,
+    cashFlow: null,
+    cashOnReturn: null,
+    equityAccumulated: null,
+    cashToReceive: null,
+    return: null
+  };
 
   holdingLength = {
     irr: null,
@@ -150,6 +163,8 @@ export class ResultSummaryComponent implements OnInit {
     this.yrOne.vacancyMo = Math.ceil(
       (this.income.vacancyRate / this.income.monthlyRent) * 100 * 100
     );
+    console.log('yrOne.vacancyMo ' + this.yrOne.vacancyMo);
+    console.log('income.vacancyRate ' + this.income.vacancyRate);
   }
 
   yrVacancy() {
@@ -217,21 +232,33 @@ export class ResultSummaryComponent implements OnInit {
   }
 
   moNoi() {
-    this.yrOne.totalMoExpenses =
+    this.yrOne.totalMoExpensesWVacancy =
       Math.ceil(this.yrOne.vacancyMo) +
       Math.ceil(this.yrOne.propertyTaxMo) +
       Math.ceil(this.yrOne.totalInsuranceMo) +
       Math.ceil(this.yrOne.hoaFeeMo) +
       Math.ceil(this.yrOne.maintenanceCostMo) +
       Math.ceil(this.yrOne.otherCostMo);
-    console.log('yrOne.totalMoExpenses ' + this.yrOne.totalMoExpenses);
+    console.log(
+      'yrOne.totalMoExpensesWVacancy ' + this.yrOne.totalMoExpensesWVacancy
+    );
 
-    this.yrOne.nOIMo = this.yrOne.incomeMo - this.yrOne.totalMoExpenses;
+    this.yrOne.nOIMo = this.yrOne.incomeMo - this.yrOne.totalMoExpensesWVacancy;
     console.log('yrOne.nOIMo ' + this.yrOne.nOIMo);
   }
 
   yrNoi() {
     this.yrOne.nOIYr = this.yrOne.nOIMo * 12;
+  }
+
+  annualExpenses() {
+    this.yrOne.totalAnnualExpenses =
+      this.expenses.propertyTaxAnnual +
+      this.expenses.totalInsuranceAnnual +
+      this.expenses.hoaFeeAnnual +
+      this.expenses.maintenanceAnnual +
+      this.expenses.otherCostAnnual;
+    console.log(this.yrOne.totalAnnualExpenses);
   }
 
   //////////////////////////////////
@@ -241,21 +268,24 @@ export class ResultSummaryComponent implements OnInit {
   // for loop over years
   years() {
     for (let i = 2; i <= this.sell.holdingLength; i++) {
+      this.breakdown.forEach(element => {
+        element.yr = [i];
+      });
+
       this.yr.push(i);
     }
     console.log(this.yr);
-    console.log(this.yr[0]);
   }
 
   annualIncome() {
     // Monthly vacancy cost
-    this.income.vacancyRate =
+    this.expenses.vacancyCost =
       (this.income.vacancyRate / this.income.monthlyRent) * 100 * 100;
-    console.log('income.vacancyRate ' + this.income.vacancyRate);
+    console.log('expenses.vacancyCost ' + this.expenses.vacancyCost);
 
     // Effective Monthly income
     this.income.effectiveMonthlyIncome =
-      this.income.monthlyRent - this.income.vacancyRate;
+      this.income.monthlyRent - this.expenses.vacancyCost;
     console.log(
       'icome.effectiveMonthlyIncome ' + this.income.effectiveMonthlyIncome
     );
@@ -267,21 +297,24 @@ export class ResultSummaryComponent implements OnInit {
     );
 
     // Annual Rent Increase
-    this.income.annualRentIncrease = (
+    let annualRentIncreaseConverted;
+    annualRentIncreaseConverted = (
       this.income.annualRentIncrease / 100 +
       1
     ).toFixed(2);
-    console.log('income.annualRentIncrease ' + this.income.annualRentIncrease);
+    console.log(
+      'income.annualRentIncreaseConverted ' + annualRentIncreaseConverted
+    );
 
     // Annual Income w/annual increase
     this.income.annualIncomeWIncrease =
-      this.income.effectiveAnnualIncome * this.income.annualRentIncrease;
+      this.income.effectiveAnnualIncome * annualRentIncreaseConverted;
     console.log(
       'income.annualIncomeWIncrease ' + this.income.annualIncomeWIncrease
     );
   }
 
-  annualExpenses() {
+  annualExpensesWIncrease() {
     // Annual Expenses w/annual increase
     this.expenses.totalAnnualExpensesWIncrease =
       this.expenses.propertyTaxAnnual *
@@ -321,19 +354,80 @@ export class ResultSummaryComponent implements OnInit {
       this.purchase.downPayment +
       this.purchase.closingCost +
       this.purchase.repairCost;
-      console.log('cashInvested ' + this.purchase.cashInvested);
+    console.log('cashInvested ' + this.purchase.cashInvested);
 
     let cashOnCashReturn;
-    cashOnCashReturn = (this.income.annualCashflow / this.purchase.cashInvested) * 100;
-    console.log(cashOnCashReturn);
+    cashOnCashReturn =
+      (this.income.annualCashflow / this.purchase.cashInvested) * 100;
     this.income.cashOnCashReturn = parseFloat(cashOnCashReturn).toFixed(2);
     console.log('income.cashOnCashReturn ' + this.income.cashOnCashReturn);
+  }
+
+  equityAccumulated() {
+    //
+  }
+
+  cashToReceive() {
+    //
+  }
+
+  breakdownReturn() {
+    //
   }
 
   // for (const breakdown of this.breakdown) {
   //   // annualIncome =  yrlyIncomeWIncrease;
   //   console.log(this.breakdown.annualIncome);
   // }
+
+  /////////////////////////////////////////////
+  // YEARLY BREAKDOWN CALCULATIONS: FIRST YEAR //   /////////////////////////////////////////////
+
+  y1BreakdownAnnualIncome() {
+    this.breakdownYrOne.annualIncome = this.income.effectiveAnnualIncome;
+  }
+
+  y1BreakdownAnnualMortgage() {
+    this.breakdownYrOne.mortgage = this.yrOne.mortPayYr;
+  }
+
+  y1BreakdownExpenses() {
+    this.breakdownYrOne.expenses = this.yrOne.totalAnnualExpenses;
+    console.log('breakdownYrone.expenses ' + this.breakdownYrOne.expenses);
+  }
+
+  y1BreakdownCashFlow() {
+    // cashFlow = income - expenses - mortgage
+    this.breakdownYrOne.cashFlow =
+      this.income.effectiveAnnualIncome -
+      this.yrOne.totalAnnualExpenses -
+      this.yrOne.mortPayYr;
+    console.log('breakdownYrOne.cashFlow ' + this.breakdownYrOne.cashFlow);
+  }
+
+  y1BreakdownCashonCashReturn() {
+    // (cashFlow / cash Invested) * 100
+    let cashOnReturn;
+    cashOnReturn =
+      (this.breakdownYrOne.cashFlow / this.purchase.cashInvested) * 100;
+
+    this.breakdownYrOne.cashOnReturn = parseFloat(cashOnReturn).toFixed(2);
+    console.log(
+      'breakdownYrOne.cashOnReturn ' + this.breakdownYrOne.cashOnReturn
+    );
+  }
+
+  y1BreakdownEquityAccumulated() {
+    //
+  }
+
+  y1BreakdownCashToReceive() {
+    //
+  }
+
+  y1BreakdownReturn() {
+    //
+  }
 
   //////////////////////////////////
   // HOLDING LENGTH CALCULATIONS //
@@ -375,16 +469,33 @@ export class ResultSummaryComponent implements OnInit {
     this.yrCashFlow();
     this.moNoi();
     this.yrNoi();
+    this.annualExpenses();
 
     // Yearly Breakdown
     this.years();
     this.annualIncome();
-    this.annualExpenses();
+    this.annualExpensesWIncrease();
     this.annualCashFlow();
     this.cashOnCashReturn();
+    this.equityAccumulated();
+    this.cashToReceive();
+    this.breakdownReturn();
+
+    // Breakdown Year One
+    this.y1BreakdownAnnualIncome();
+    this.y1BreakdownAnnualMortgage();
+    this.y1BreakdownExpenses();
+    this.y1BreakdownCashFlow();
+    this.y1BreakdownCashonCashReturn();
+    this.y1BreakdownEquityAccumulated();
+    this.y1BreakdownCashToReceive();
+    this.y1BreakdownReturn();
 
     // Holding Length
     this.totalMortgagePayments();
     this.purchaseCapRate();
+
+    // Console logs
+    console.log('expenses.vacancyCost ' + this.expenses.vacancyCost);
   }
 }

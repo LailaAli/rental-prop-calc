@@ -45,6 +45,7 @@ export class AppComponent implements OnInit {
     maintenanceAI: 3,
     otherCostAnnual: 200,
     otherCostAI: 3,
+    vacancyCost: null,
     moMortgage: null,
     annualMortgage: null,
     totalAnnualExpenses: null,
