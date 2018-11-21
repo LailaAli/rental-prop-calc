@@ -59,17 +59,6 @@ export class ResultSummaryComponent implements OnInit {
       cashToReceive: 6700,
       return: 5
     },
-    {
-      yr: 3,
-      annualIncome: 5000,
-      mortgage: 405,
-      expenses: 300,
-      cashFlow: 2400,
-      cashOnReturn: 5,
-      equityAccumulated: 7000,
-      cashToReceive: 6700,
-      return: 5
-    }
   ];
 
   breakdownYrOne: any = {
@@ -312,6 +301,11 @@ export class ResultSummaryComponent implements OnInit {
     console.log(
       'income.annualIncomeWIncrease ' + this.income.annualIncomeWIncrease
     );
+
+    this.breakdown.forEach(element => {
+      element.annualIncome = this.income.annualIncomeWIncrease;
+    });
+    // Increase by using ^power ?
   }
 
   annualExpensesWIncrease() {
